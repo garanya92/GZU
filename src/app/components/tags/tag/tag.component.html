@@ -1,0 +1,8 @@
+<div class="main" [class.main_active] = "tag.isSelected"  (click)="onSelect() ">
+
+
+  <div>#{{tag.title}}</div>
+  <div *ngIf="tag.container?.totalElements">({{tag.container?.totalElements}})</div>
+
+</div>
+

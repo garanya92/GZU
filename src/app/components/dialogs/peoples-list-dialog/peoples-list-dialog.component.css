@@ -1,0 +1,11 @@
+.main{
+  padding: 0.5rem;
+  background-color: rgb(48, 44, 44);
+  height: 100%;
+  overflow-y: scroll;
+
+}
+
+.main::-webkit-scrollbar {
+  width: 0;
+}

@@ -1,0 +1,15 @@
+<div  class="tags_container">
+
+
+        <div *ngFor="let tag of inputTags">
+
+          <app-tag [tag]="tag"    (onTag) = "onSelect($event)" ></app-tag>
+
+       </div>
+
+
+
+
+
+
+  </div>

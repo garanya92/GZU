@@ -1,0 +1,35 @@
+<div class="main" >
+  <mat-tab-group >
+    <mat-tab  label="Моя музика" >
+
+ <div style="max-height: 20rem; overflow-y: scroll;"  >
+
+      <div *ngFor="let tarck of userTracksModule.userTracks">
+        <app-track (onTrackAdd)="addTrackToList($event)"  [isAddingMode]="true" [track]="tarck"></app-track>
+
+</div>
+</div>
+
+<div>
+<div style="display: flex;">
+<button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
+ <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{addedTracks.length}}</div>
+</div>
+
+</div>
+
+    </mat-tab>
+    <mat-tab label="Мої фото"  >Мої фото</mat-tab>
+
+
+
+    <mat-tab label="Мої Відео">
+
+            <button mat-raised-button (click)="uploadVideo()">Завантажити відео</button>
+
+    </mat-tab>
+
+
+
+  </mat-tab-group>
+</div>

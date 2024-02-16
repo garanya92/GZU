@@ -1,0 +1,33 @@
+<div class="main" style="color: white;" >
+   <img style=" cursor: pointer;  width: 1.2rem;" src="assets/exit.png"(click)="stopUpload()" >
+  <p  [hidden]="isUpload" >Оберіть файли для завантаження</p>
+   <div [hidden]="isUpload" class="input_container">
+
+
+    <input #input style="display: block;"  accept="{{activeInputFilterTypes}}" type="file">
+
+  </div>
+   <div class="info_files">
+     <p>Обрано: {{filesSize}}</p>
+
+   </div>
+   <p [hidden]="!isError" >Не має чого завантажувати!</p>
+
+
+   <button  [hidden]="filesSize == 0 || isUpload"  mat-raised-button color = "primary"  (click)="uploadBtn()">Завантажити</button>
+
+
+     <div class="upload_progress" *ngIf="isUpload">
+      <mat-spinner style="margin-left: auto; margin-right: auto;" ></mat-spinner>
+     <div style="display: flex; justify-content: space-between; text-align: center; "  >
+
+       <button mat-raised-button color="warn" (click)="isStop = true">Відміна</button>
+    </div>
+
+     </div>
+
+
+
+
+
+</div>

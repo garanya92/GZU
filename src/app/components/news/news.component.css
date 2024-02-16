@@ -1,0 +1,13 @@
+.search{
+  display: flex;
+  width: 100%;
+
+}
+
+.main{
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.main::-webkit-scrollbar { width: 0; }
+

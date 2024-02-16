@@ -1,0 +1,20 @@
+
+
+.main{
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 100%;
+  background-color: rgb(59, 58, 58);
+}
+.host{
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.trend-dialog .mat-dialog-container{
+  overflow-y: hidden !important;
+
+}

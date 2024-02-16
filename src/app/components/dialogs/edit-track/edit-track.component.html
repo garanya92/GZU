@@ -1,0 +1,54 @@
+<div class="main"  >
+   <img src="/assets/exit.png" (click)="dialogRef.close()" style="width: 1.3rem; cursor: pointer;" >
+   <br>
+   <p>Завантажив: <a  style="color: aliceblue; font-weight: 400; " [routerLink]="'/user/'+ data.trackInput.author_id" (click)="dialogRef.close()"
+     >{{data.trackInput.author}}</a> </p>
+
+
+    <form class="example-form" style=" margin-left: auto; margin-right: auto; display: flex;   " [ngStyle]="{flexDirection: adaptibeService.isMobileMode? 'column' : 'row'}"  >
+
+
+      <mat-form-field   class="example-full-width" style="margin: 0.5rem;" >
+        <mat-label>Назва треку</mat-label>
+        <input matInput placeholder="Назва" [disabled]="disabledInputs"  [(ngModel)]="data.trackInput.title" [ngModelOptions]="{standalone: true}" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width"style="margin: 0.5rem;"  >
+        <mat-label>Виконавець</mat-label>
+        <input matInput [disabled]="disabledInputs"  placeholder="Виконавець"  [(ngModel)]="data.trackInput.artist" [ngModelOptions]="{standalone: true}" >
+      </mat-form-field>
+
+
+    </form>
+
+          <!---Компонент тегів-->
+    <div style="overflow-x: hidden; overflow-y: scroll;  height: 10rem;"  >
+         <app-tags  [editMode]="true"   [selectedTagsInTrack]="trackTags"  [inputTags]="tags"  ></app-tags>
+
+
+         <!--Форма додавання нового тегу-->
+         <div style="display: flex; width: min-content;  height: min-content; border-radius: 1.2rem; overflow: hidden; margin-left: auto; margin-right: auto; "  >
+         <input class="input_form"  placeholder="Новий тег" [(ngModel)] = "strNewTag" >
+          <button mat-raised-button (click)="newTag()" color="primary" >Додати</button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+   <!--Кнопки збереження, видалення треку-->
+    <div style=" padding: 0.5rem; display: flex; justify-content: space-around;" >
+
+
+      <button  (click)="deleteTrack()" disabled="{{disabledInputs}}"  mat-mini-fab color="warn" >
+      <mat-icon>delete</mat-icon>
+     </button>
+     <button (click)="updateTrack()" mat-mini-fab color="primary" >
+      <mat-icon>save</mat-icon>
+     </button>
+  </div>
+
+</div>

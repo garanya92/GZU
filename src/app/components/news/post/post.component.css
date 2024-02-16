@@ -1,0 +1,30 @@
+.avatar_container{
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.header
+{
+  display: flex;
+  padding: 0.5rem;
+
+}
+
+.login{
+  color: aliceblue;
+  margin-left: 1rem;
+
+}
+.avatar_img{
+  width: 3rem;
+}
+
+.main{
+    margin-top: 1.5rem;
+   margin: 1rem;
+   padding: 1rem;
+   backdrop-filter: blur(3px);
+
+   background-color: rgba(67, 65, 65, 0.113);
+}

@@ -1,0 +1,12 @@
+.main{
+  padding: 1rem;
+  background-color: rgb(50, 50, 50);
+  display: block;
+  color: aliceblue;
+  overflow-x: hidden;
+  max-width: min-content;
+  overflow-wrap: normal;
+}
+
+
+

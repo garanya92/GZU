@@ -1,0 +1,120 @@
+.main{
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+}
+
+.offcanvas-body{
+  background-color: aquamarine;
+}
+:host {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(54, 52, 52);
+  flex-direction: column;
+
+}
+
+
+.left_bar{
+  background-color: rgba(39, 37, 40, 0.841) ;
+  border-radius: 1rem;
+  padding-top: 2rem;
+}
+
+.left_bar_mobile{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+  width: 14rem;
+
+   top: 3rem;
+   z-index: 1000;
+   background-color: rgb(39, 37, 40) ;
+   transition: 0.5s;
+
+
+}
+
+.user_container
+{
+
+    width: 100%;
+
+   display: flex;
+   flex-direction: column;
+}
+.user_container:hover{
+   cursor: pointer;
+   background-color: rgba(137, 43, 226, 0.09);
+}
+
+  .avatar_container{
+     width: 5rem;
+     height: 5rem;
+     border-radius: 50%;
+
+
+     margin-top: 0.5rem;
+     margin-bottom: auto;
+     margin-left: auto;
+     margin-right: auto;
+    overflow: hidden;
+
+    }
+
+    .little_user_container{
+         width: 2.2rem;
+         height: 2.2rem;
+         border-radius: 50%;
+         overflow: hidden;
+         border: solid rgb(69, 2, 140) 0.15rem;
+
+    }
+
+      .little_user_container:hover{
+           cursor: pointer;
+      }
+    .little_user_icon{
+       width: 2.2rem
+
+
+    }
+
+    .user_avatar{
+       width: 5rem;
+
+    }
+
+.user_title{
+  margin-top: 0.5rem;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 0.5rem;
+
+
+}
+
+
+.bar_item{
+   display: flex;
+   color: antiquewhite;
+   padding: 0.6rem;
+   padding-left: 2rem;
+   padding-right: 2.5rem;
+ font-weight: 400;
+ font-size: 0.9rem;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
+
+.bar_item:hover{
+  cursor: pointer;
+  background-color: rgba(137, 43, 226, 0.543);
+
+
+
+}

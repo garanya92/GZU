@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MianPaige</title>
+</head>
+<body  >
+
+
+  <!--Нотіфіікатор-->
+   <div class="enter_user_lable" *ngIf="notificator.isActive"   [ngStyle]="{right: notificator.isShow? '0rem': '-16rem'}" >
+      <div style="width: 3rem; height: 3rem; border-radius: 50%;  overflow: hidden;">
+          <img style="width: 3rem;" [src]="userService.baseUrl + notificator.user.avatar_path">
+
+      </div>
+
+      <div style="margin-top: auto; margin-bottom: auto; margin-left: 0.5rem; margin-right: 0.5rem;" >
+        <div style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.3rem; " >{{notificator.user.login}}</div>
+        <div style="text-align: center;">{{notificator.message}}</div>
+
+    </div>
+
+   </div>
+
+
+
+    <header class="header">
+
+      <button style="margin-top: auto; margin-bottom: autong ;" *ngIf ="adaptiveService.isMobileMode" (click)="adaptiveService.setMenu()" mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
+         <img style="width: 1.5rem;" src="assets/menu.png">
+      </button>
+
+       <div style="color: wheat; font-weight: 500; font-size: 2rem;" class="header_item">GZU</div>
+
+       <div *ngIf="!adaptiveService.isMobileMode" class="header_item"><input class="search" placeholder="Пошук"></div>
+
+
+      <div style="display: flex; margin-top: auto; margin-bottom: auto; " >
+       <button *ngIf="!userService.isUserExist()" mat-raised-button  (click)="openLoginDialog()" color="primary">Вхід</button>
+       <div  class="header_info"  (click) = 'userOption == false? userOption = true : userOption = false'  >
+
+        <div  *ngIf="userService.isUserExist()" class="little_user_container" >
+             <img class="little_user_icon" [src]="userService.baseUrl + user.avatar_path">
+        </div>
+        <div  style="margin-top: auto; margin-bottom: auto;  display: block; font-size: 0.6rem; margin-right: 0.6rem; " >
+
+            <div >Онлайн:{{wsService.statistic.onlineUsers}}</div>
+            <div >Автор-з.{{wsService.statistic.authorized}}</div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <!---Доп меню , управління аком-->
+        <div class="user_option_container"  *ngIf="userService.isUserExist()"  [ngStyle]="{display: userOption? 'block':'none'}">
+          <div  class="avatar_container" >
+            <img style="width: 5rem; " [src] = "userService.baseUrl + user.avatar_path">
+          </div>
+
+
+          <p style="color: aliceblue; text-align: center; "  >{{userService.getUser().login}}</p>
+
+
+          <div style="display: flex; color: aliceblue; justify-content: space-between; "  >
+            <div style="margin-top: auto; margin-bottom: auto;">Всього online:</div>
+            <div class="bubble" style="background-color: rgba(137, 43, 226, 0.746);" >
+              <div class="bubble_item" >{{statistic.onlineUsers}}</div>
+             </div>
+          </div>
+          <div style="display: flex; color: aliceblue; justify-content: space-between; margin-top: 0.5rem;" >
+             <div style="margin-top: auto; margin-bottom: auto;"  >Авторизованих:</div>
+            <div class="bubble" style="background-color: rgba(43, 226, 95, 0.746);" >
+              <div class="bubble_item" >{{statistic.authorized}}</div>
+             </div>
+
+          </div>
+
+
+          <button (click)="userService.exitFromAccount()" mat-raised-button color="primary">Вихід</button>
+     </div>
+
+
+      </header>
+
+
+<div class="main"  [ngStyle]="{marginTop: adaptiveService.isMobileMode?  '3rem' : '3.5rem' }"   (click)="userOption = false" >
+  <div
+  [class.left_bar_mobile] = "adaptiveService.isMobileMode"
+   [class.left_bar] = "!adaptiveService.isMobileMode"
+   [ngStyle]="adaptiveService.isMenuShowed?{'left': '0'} : {'left': '-16rem'}" >
+
+         <!---Юзерінфо в боковому барі-->
+            <div class="user_container" (click)="openLoginDialog()" >
+                   <div class="avatar_container">
+                       <img *ngIf="user" [src] = "userService.baseUrl + user.avatar_path"  class="user_avatar">
+
+                  </div>
+               <div class="user_title">
+                   <div *ngIf="user" style="color: aliceblue; font-weight: 400; font-size: 1rem;
+
+                   ">{{user.login}}</div>
+               </div>
+
+               </div>
+
+  <!--Ітеми бокового бару-->
+     <div class="bar_item"  routerLink="/news"  > <img style="width: 1rem; height: 1rem; margin-right: 0.5rem;" src="assets/news.png">    Новини</div>
+        <div class="bar_item" routerLink="/peoples" (click)="adaptiveService.setMenu()" >
+          <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/groups.png">
+          Люди</div>
+        <div class="bar_item"  (click)="chatService.allUnreadMessages = 0"  routerLink="/messages/0"(click)="adaptiveService.setMenu()" >
+          <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/messages.png">
+          Повідомлення
+           <div style="text-indent: 0.5rem;" *ngIf="chatService.allUnreadMessages && chatService.allUnreadMessages > 0" >
+            (+{{chatService.allUnreadMessages}})
+
+          </div>
+        </div>
+        <div class="bar_item" routerLink="/music" (click)="adaptiveService.setMenu()"  >
+           <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/note.png">  Музика</div>
+        <div class="bar_item" routerLink="/groups" >
+          <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/friends.png">
+          Групи</div>
+        <div class="bar_item"> <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/setting.png">   Налаштування</div>
+        <app-player></app-player>
+
+
+
+   <!--Контейнер для роутів-->
+  </div >
+     <div class="work_container" [ngStyle]="adaptiveService.getStatusBlur()?  {'filter' : 'blur(4px)'}: {'filter' : 'none'}  "
+      (click)="adaptiveService.isMenuShowed = false"
+
+      >
+       <router-outlet></router-outlet>
+     </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

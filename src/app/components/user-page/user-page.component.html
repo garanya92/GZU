@@ -1,0 +1,67 @@
+
+<!--Шапка профілю-->
+<div class="main">
+  <div class="user_header">
+
+    <div class="avatar">
+
+    <div *ngIf="userParam" class="logo_container">
+           <img class="logo" [src]="userService.baseUrl + userParam.avatar_path">
+
+     </div>
+
+     <button *ngIf="userParam && isOwner" mat-raised-button
+      class="btn_basic" color="basic"
+     >Змінити аватар</button>
+
+     <button *ngIf="userParam && !isOwner" mat-raised-button
+      class="btn_basic" color="basic" (click) ="sendMessage()"
+     >Надіслати повідомлення</button>
+
+
+    </div>
+  </div>
+<!--Мудіа юзера-->
+<mat-tab-group (selectedIndexChange)="activeTab($event)">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <img
+        style="width: 1.2rem; margin-right: 0.5rem"
+        src="assets/photo.png"
+      />
+    </ng-template>
+
+ <app-user-photos *ngIf="userParam"  [user]="userParam"></app-user-photos>
+
+
+  </mat-tab>
+
+  <mat-tab >
+    <ng-template mat-tab-label>
+      <img
+        style="width: 1.2rem; margin-right: 0.5rem"
+        src="assets/note.png"
+      />
+    </ng-template>
+
+   <app-user-audio></app-user-audio>
+
+     </mat-tab>
+  <mat-tab >
+    <ng-template mat-tab-label>
+      <img
+        style="width: 1.2rem; margin-right: 0.5rem"
+        src="assets/see.png"
+      />
+    </ng-template>
+
+
+    Content 3 </mat-tab>
+</mat-tab-group>
+
+
+
+
+
+
+</div>

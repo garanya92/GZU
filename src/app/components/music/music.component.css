@@ -1,0 +1,55 @@
+.main{
+
+
+  height: 100%;
+  overflow-y: scroll;
+
+
+   min-width: 100%;
+
+
+}
+
+
+
+.main::-webkit-scrollbar {
+  width: 0;
+}
+
+.tags_container{
+
+  position: fixed;
+  right: 0rem;
+  width: 15rem;
+  background-color: rgba(39, 37, 40, 0.95) ;
+  backdrop-filter: (blur(3px));
+  height: 100%;
+  top: 3.5rem;
+  z-index: 10000;
+  transition: 0.5s;
+  text-wrap: wrap;
+  bottom: 0;
+
+
+}
+
+.tag_btn{
+  position: relative;
+  color: white;
+  font-size: 3rem;
+  left: -2.5rem;
+  bottom: -26rem;
+  z-index: 10000;
+  background-color: rgba(39, 37, 40, 0.95) ;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  width: min-content;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+

@@ -1,0 +1,17 @@
+
+<div style="text-align: center;" *ngIf="chatService.activeChat && chatService.activeChat.messagesList && chatService.activeChat.messagesList.length == 0">
+  Поки що нічого не має
+</div>
+<div *ngIf="chatService.container && chatService.container.last != true"
+>
+  <div  (click)="chatService.showPrewChatMessages()" style="color: beige; text-align: center;font-size: 0.9rem; padding-top: 0.3rem; cursor: pointer;" >Показати попередні</div>
+</div>
+<div *ngIf="chatService.activeChat" #messages_container >
+  <div *ngFor="let message of chatService.activeChat.messagesList">
+    <app-messsage [message]="message"></app-messsage>
+   </div>
+ <div #corn ></div>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+<div class="main">
+<app-create-post-diaolog></app-create-post-diaolog>
+
+
+
+
+  <div *ngFor="let post of postService.allPosts">
+    <app-post [post]="post"></app-post>
+  </div>
+
+
+
+
+</div>

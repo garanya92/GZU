@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="true">91.202.145.108</domain>
+    <domain includeSubdomains="true">http://91.202.145.108:8080/ws</domain>
+    <domain includeSubdomains="true">91.202.145.108:8080/ws</domain>
+    <domain includeSubdomains="true">http://91.202.145.108/ws</domain>
+
+  </domain-config>
+</network-security-config>

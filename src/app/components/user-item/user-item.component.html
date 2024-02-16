@@ -1,0 +1,23 @@
+<div class="main"  [routerLink]="'/user/' + user.id"  >
+   <div style="display: flex;">
+    <div class="img_container"  [ngStyle]="{'background-image': 'url( {{avatarPath}} )'}"  >
+      <img  class="img"  [src]="userService.baseUrl + user.avatar_path">
+     </div>
+   <div style="display: flex;  margin-top: auto; margin-bottom: auto; margin-left: 1rem; font-size: 1rem;" >{{user.login}}
+      <div *ngIf="userService.getUser().id == user.id" > (це я) </div></div>
+
+
+   </div>
+
+<div class="option" style="display: flex;
+margin-top: auto; margin-bottom: auto;">
+   <p  *ngIf = "user.online" style="margin-right: 1rem; margin-top: auto; margin-bottom: auto; "  >online</p>
+   <button mat-mini-fab color="basic" (click)="onSendMessage()" >
+     <img style="width: 1.4rem;" src ="assets/messages.png">
+    </button>
+
+
+</div>
+
+
+</div>

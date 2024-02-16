@@ -1,0 +1,39 @@
+.main
+{
+  color: black;
+   display: flex;
+  background-color: aliceblue;
+  padding: 0.4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  margin: 0.2rem;
+  width: min-content;
+  border-radius: 1rem;
+  font-weight: 400;
+  border: 0.2rem solid rgba(255, 248, 220, 0.32) ;
+  transition: 0.3s;
+}
+
+.main_active
+{
+  display: flex;
+  color: aliceblue;
+  background-color: rgb(70, 49, 137);
+  padding: 0.4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  margin: 0.2rem;
+  width: min-content;
+  border-radius: 1rem;
+  font-weight: 400;
+  border: 0.2rem solid rgba(255, 248, 220, 0.303) ;
+  transition: 0.3s;
+}
+
+
+
+
+.main:hover{
+    cursor: pointer;
+    border:  0.2rem  solid cornflowerblue;
+}

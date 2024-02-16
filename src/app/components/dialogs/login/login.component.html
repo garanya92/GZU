@@ -1,0 +1,22 @@
+<div class="main" id="base_background" >
+  <img style="width: 1rem;cursor: pointer; " (click)="dialogRef.close()"  src="assets/exit.png" >
+  <h2 id = "center_white_text" >Вхід</h2>
+
+  <div class="example-container" >
+    <mat-form-field >
+      <mat-label>Введіть свій логін</mat-label>
+      <input matInput placeholder="login" [(ngModel)]  = "login"  required>
+    </mat-form-field>
+
+
+  <div class="example-container">
+    <mat-form-field >
+      <mat-label>Введіть свій пароль</mat-label>
+      <input matInput  type="password" placeholder="password" [(ngModel)]  = "password" required>
+    </mat-form-field>
+  </div>
+    <mat-error *ngIf="messageError" style=" margin-left: auto; margin-right: auto; text-align: center; width: 10rem; overflow-wrap: break-word;  color: rgb(246, 246, 246);" >{{messageError}}</mat-error>
+
+  <button mat-raised-button  (click)="onLogin()"  color="primary">Вхід</button>
+
+</div>

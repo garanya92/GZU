@@ -1,0 +1,60 @@
+ <div class="main" *ngIf="userService.isUserExist()">
+
+  <div *ngIf="messagesViewController.isShowChatsUserBlock"
+  [ngStyle]="{width: adaptiveService.isMobileMode? '100%': 'auto'}" >
+  <!--Бокова панель де показується список чатів з юзерами-->
+<app-chat-users   [chats]="chatService.chatsUser" (onClick)="clickUserChat($event)"  ></app-chat-users>
+</div>
+
+
+
+
+  <div class="messages_container"   *ngIf="messagesViewController.isShowMessagesBlock" >
+   <div class="messages_header"  >
+     <!--Інформація про чат-->
+    <!--Кнопка, яка повертає в список чатів (Акивна в мобільній версії)-->
+     <div  *ngIf = "adaptiveService.isMobileMode" class="back_bt" (click)= "messagesViewController.showChatUsersBlock()"  >
+          <img src="assets/back.png" style="width: 1rem; height: 1rem;">
+          <div  >назад</div>]
+    </div>
+  <div  style="font-size: 1rem;"    >
+      <div *ngIf="chatService.activeChat">
+         <div *ngFor="let user of chatService.activeChat.users">
+             <div  *ngIf="user.id != userService.getUser().id" >{{user.login}}</div>
+        </div>
+
+      </div>
+
+
+  </div>
+   </div>
+  <div class="messages_space" #scroll>
+
+  <!--Область з самими повідомленнями -->
+
+
+   <app-chat  [messagesComponent]="this"  ></app-chat>
+
+
+
+  </div>
+
+  <div
+   class="input_space">
+
+     <input type="text" placeholder="Введіть повідомлення"
+      style="height: 2.2rem; border: none; width: 100%;
+      background-color: rgba(49, 48, 48, 0.401); color: aliceblue; "
+       [(ngModel)]="messageStr"
+      >
+      <button mat-raised-button color="primary"(click)="sendMessage()" [disabled]="messageStr.length < 1" >
+       sendng
+      </button>
+
+  </div>
+</div>
+
+ </div>
+
+<app-need-login-lable *ngIf="!userService.isUserExist()" message="Для доступу до повідомлень, - потрібно увійти
+або зареєструватися!" (onClose)="onLogin($event)" ></app-need-login-lable>

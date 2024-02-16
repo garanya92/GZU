@@ -1,0 +1,32 @@
+<div class="main" [ngStyle]="{
+  marginRight: adaptiveService.isMobileMode? '0' : '1rem',
+  marginLeft: adaptiveService.isMobileMode? '0' : '1rem',
+  padding: adaptiveService.isMobileMode? '0': '1rem'
+}" >
+ <div class="header">
+   <div class="avatar_container" >
+      <img  class="avatar_img" [src]="postServise.baseUrl + post.creator?.avatar_path">
+
+   </div>
+   <div >
+       <div class="login">{{post.creator?.login}}</div>
+   </div>
+ </div>
+<div class="post_body">
+  <p style="color: aliceblue; text-indent: 1rem;">{{post.text_container}}</p>
+
+</div>
+<div *ngIf="post.tracks"  class="tracks">
+       <div *ngFor="let track of post.tracks">
+         <app-track [track]="track"></app-track>
+      </div>
+</div>
+ <div>
+  <div (click)="likePost()" style="display: flex; margin-top: 1rem; cursor: pointer;" class="likes">
+    <img style="width: 1.2rem; height: 1.2rem;"  src="/assets/heart.png">
+    <div style="color: rgb(173, 177, 181); margin-top: auto; margin-bottom: auto; margin-left: 0.3rem;">{{post.likes}}</div>
+  </div>
+
+
+ </div>
+</div>

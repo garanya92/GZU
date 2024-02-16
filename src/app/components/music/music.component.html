@@ -1,0 +1,115 @@
+<div class="main" #main  >
+  <mat-tab-group (selectedIndexChange)="activeTab($event)">
+    <!--Вся музика-->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img
+          style="width: 1.2rem; margin-right: 0.5rem"
+          src="assets/note.png"
+        />
+        <div style="color: aliceblue">Загальна</div>
+      </ng-template>
+
+       <div style="display: flex;  "  >
+         <div style="flex: 2.5" >
+
+
+
+          <!--Блок всіх треків-->
+         <div *ngIf="!tagsService.isTagsFilterActive"   >
+                <div *ngFor = "let t of allTracksModule.tracks">
+
+
+                    <app-track  [track] = t></app-track>
+
+
+                </div>
+
+
+                 <!--Кнопка пагінації-->
+              <button *ngIf="allTracksModule.isAllTracksFinished == true" mat-stroked-button style="color: wheat; width: 100%;" >
+              Більше треків не має...
+                </button>
+  <app-infinity-scroll (scrolled)="scrolling()" ></app-infinity-scroll>
+              </div>
+
+           <!---Блок треків  тегами-->
+             <div *ngIf="tagsService.isTagsFilterActive" >
+                  <div *ngFor = "let tag of tagsService.tags">
+
+                     <div *ngIf="tag.isSelected">
+                         <div *ngFor="let track of tag.tracks">
+
+                            <app-track   [track]="track" ></app-track>
+                          </div>
+
+
+                          <div *ngIf="tag.container &&   tag.tracks &&  tag.tracks.length > 0">
+                           <button    (click)="tagsService.moreTracks(tag)"  mat-stroked-button style="color: aliceblue; width: 100%;"
+                            color="basic" >
+                             <div style="display: flex;"  >
+                              #{{tag.title}} {{tag.tracks.length}}/{{tag.container.totalElements}}
+
+                              <div *ngIf="!tag.container.last" style="margin-left: 0.5rem;"  > Показати ще..</div>
+
+                            </div>
+                            </button>
+                          </div>
+
+
+
+                          </div>
+
+                  </div>
+
+
+
+             </div>
+             <div *ngIf = "allTracksModule.isProgress || tagsService.isProgress">
+
+              <mat-spinner style="margin-right: auto; margin-left: auto;" ></mat-spinner>
+            </div>
+
+      </div>
+
+  <!---Блок тегів-->
+     <div [class.tags_container] = "adaptiveServise.isMobileMode"   style="flex: 1;" class="" [ngStyle]="{right: isTagsPanelShow? '0rem': '-15rem' }">
+
+      <!--Кнопка бокової панелі-->
+      <div  *ngIf="adaptiveServise.isMobileMode"  (click)="isTagsPanelShow == true? isTagsPanelShow = false: isTagsPanelShow = true"
+          class="tag_btn">#</div>
+
+          <div style="  color: aliceblue; font-size: 1.2rem; font-weight: 400; margin-left: 1rem;" >Теги:</div>
+
+          <app-tags [inputTags]="tagsService.tags" (onSelectedTag)="tagsService.onSelectedTag($event)"  ></app-tags>
+
+
+
+          <button *ngIf="tagsService.isTagsFilterActive"  mat-stroked-button style="width: 100%; color: aliceblue;" (click)="tagsService.closeTagsFilers()"   >Скинути  теги</button>
+          <div style="height: 3.7rem"></div>
+
+      </div>
+
+
+
+       </div>
+
+
+
+
+      <div style="height: 3.7rem"></div>
+    </mat-tab>
+    <!---Мої треки-->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img
+          style="width: 1.2rem; margin-right: 0.5rem"
+          src="assets/user.png"
+        />
+        <div style="color: aliceblue">Мої аудіо</div>
+      </ng-template>
+
+       <app-user-audio></app-user-audio>
+    </mat-tab>
+  </mat-tab-group>
+</div>

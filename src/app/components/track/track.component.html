@@ -1,0 +1,123 @@
+
+<div class="main" [class.main] = " !track.isPlaying"  [class.is_active] = " track.isPlaying" >
+
+   <div style="display: flex; justify-content: space-between; "  >
+   <div style="display: flex;">
+   <div  style="margin-top: auto; margin-bottom: auto; "  (click)="play()">
+
+    <button  mat-mini-fab matTooltip="Primary" color="primary" aria-label="Example mini fab with a heart icon">
+
+       <div  *ngIf="!isLoading">
+      <img  [hidden]="track.isPlaying" class="img_icon_bt"  src="assets/play.png">
+     <img  [hidden]="!track.isPlaying" class="img_icon_bt"  src="assets/pause.png">
+    </div>
+      <div *ngIf="isLoading">
+        <mat-spinner color="accent" diameter="35" >
+
+
+        </mat-spinner>
+      </div>
+
+
+    </button>
+
+
+   </div>
+
+
+    <div class="info_container" style=  "display: block;">
+
+        <div *ngIf="adaptive.isMobileMode">
+      <div class="artist">{{track.artist| cutString:25 }}</div>
+      <div class="title"> {{track.title|cutString:25  }}</div>
+    </div>
+      <div  *ngIf="!adaptive.isMobileMode">
+        <div class="artist">{{track.artist| cutString: 45}}</div>
+        <div class="title"> {{track.title|cutString: 45 }}</div>
+
+      </div>
+
+
+
+
+
+
+
+      <div *ngIf="isAddingMode == false" >
+      <div   class="bottom_info">
+
+        <div style="display: flex; margin-right: 1rem;" >
+          <img src = "assets/user.png"  style="height: 0.8rem; margin-right: 0.2rem;">
+          <div >{{track.author}}</div>
+       </div>
+
+
+       <div style="display: flex; margin-right: 1rem;">
+         <img src = "assets/download.png"  style="height: 0.8rem; margin-right: 0.2rem;">
+         <div >{{0}}</div>
+      </div>
+
+      <div style="display: flex;margin-right: 1rem; ">
+       <img src = "assets/play_count.png"  style="height: 0.8rem; margin-right: 0.2rem;">
+       <div >{{track.count_play}}</div>
+    </div>
+
+
+    </div>
+  </div>
+
+
+    </div>
+
+
+</div>
+   <!--Лайки, додавання треків в мої аудіо,редагування-->
+   <div *ngIf="!isAddingMode" [ngStyle]="{display: adaptive.isMobileMode? 'block': 'flex' }">
+     <div class="icon_container" (click)="edit()" >
+        <img src="assets/reg.png"  class="img_icon" >
+     </div>
+
+    <div class="icon_container" (click)="like()" (mouseover)="showUsersLikes()" (mouseleave)="isShowInfo = false">
+     <div  *ngIf="isShowInfo && !adaptive.isMobileMode && track.users?.length" class="info_likes_users">
+          <div *ngFor=" let user of track.users ">
+             <div   >
+              <div  style="width: 2.5rem; height: 2.5rem; border-radius: 50%; overflow: hidden;" >
+              <img style="width: 2.5rem; height: auto; "  [src]="userService.baseUrl + user.avatar_path">
+            </div>
+              <div style="color: aliceblue;" >{{user.login|cutString:5}}</div>
+              </div>
+
+
+          </div>
+     </div>
+
+    <img *ngIf="!track.like" class="img_icon" src="assets/heart.png">
+    <img *ngIf="track.like" class="img_icon" src="assets/heart_red.png">
+    <p style="color: grey; margin-top: auto; margin-bottom: auto; " >{{track.likes}}</p>
+  </div>
+
+   <div class="icon_container"  (click)="addToUser()" >
+     <img  [hidden]="isSended" class="img_icon" src="assets/add.png">
+     <img  [hidden]="!isSended" class="img_icon" src="assets/ok.png">
+   </div>
+
+
+
+  </div>
+      <!--Кнопка , яка появляється в режим вставляння треків в
+      повідолень/новин-->
+   <button (click) = "clickAddTrack()"  *ngIf="isAddingMode" style="margin-top: auto; margin-bottom: auto;" mat-mini-fab color="primary">
+
+    <mat-icon *ngIf="!isAdded" class="mat-18">add</mat-icon>
+    <mat-icon *ngIf="isAdded" class="mat-18">done</mat-icon>
+   </button>
+
+
+  </div>
+
+  <mat-slider *ngIf="track.isPlaying" style="width: 97%;" #progress  id  ="sliders"    step="1" min="1" max="100" class=""  >
+
+    <input  [value]="audioService.player.persents" (valueChange)="audioService.player.setTimeTrack($event)"  matSliderThumb  >
+
+  </mat-slider>
+</div>

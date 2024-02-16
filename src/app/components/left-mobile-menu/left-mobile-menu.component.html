@@ -1,0 +1,38 @@
+
+
+
+ <!---Юзерінфо в боковому барі-->
+ <div class="user_container" (click)="openLoginDialog()" >
+  <div class="avatar_container">
+      <img *ngIf="user" [src] = "userService.baseUrl + user.avatar_path"  class="user_avatar">
+
+ </div>
+<div class="user_title">
+  <div *ngIf="user" style="color: aliceblue; font-weight: 400; font-size: 1rem;
+
+  ">{{user.login}}</div>
+</div>
+
+</div>
+
+
+<!--Ітеми бокового бару-->
+  <div class="bar_item"  routerLink="/news"  > <img style="width: 1rem; height: 1rem; margin-right: 0.5rem;" src="assets/news.png">    Новини</div>
+  <div class="bar_item" routerLink="/peoples" (click)="adaptiveService.setMenu()" >
+    <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/groups.png">
+    Люди</div>
+  <div class="bar_item"  (click)="chatService.allUnreadMessages = 0"  routerLink="/messages/0"(click)="adaptiveService.setMenu()" >
+    <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/messages.png">
+    Повідомлення
+     <div style="text-indent: 0.5rem;" *ngIf="chatService.allUnreadMessages && chatService.allUnreadMessages > 0" >
+      (+{{chatService.allUnreadMessages}})
+
+    </div>
+  </div>
+  <div class="bar_item" routerLink="/music" (click)="adaptiveService.setMenu()"  >
+     <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/note.png">  Музика</div>
+  <div class="bar_item" routerLink="/groups" >
+    <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/friends.png">
+    Групи</div>
+  <div class="bar_item"> <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/setting.png">   Налаштування</div>
+  <app-player></app-player>

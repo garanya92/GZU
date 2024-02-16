@@ -1,0 +1,94 @@
+
+#sliders{
+   width: 90%;
+
+
+}
+
+
+ .main{
+   background-color: rgb(57, 53, 53);
+   border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+  padding: 1rem;
+
+
+ }
+
+ .control_bar{
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+
+
+
+
+
+ }
+
+
+
+ .cat{
+  position: fixed;
+
+  bottom: -2.5rem;
+
+  width: 10rem;
+
+  transition: 0.5s;
+  z-index: 2000;
+}
+
+
+
+
+
+
+
+
+ .control_bt_container{
+   background-color: rgb(83, 5, 87);
+   display: flex;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 0.5rem;
+
+
+ }
+
+
+
+ .control_bt{
+      width: 1.8rem;
+      margin-bottom: auto;
+      margin-top: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+
+ }
+
+
+ .control_bt:hover{
+    cursor: pointer;
+ }
+
+ .track_info{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 3rem;
+ }
+
+ .artist{
+   color: white;
+   font-weight: bold;
+   font-size: 0.8rem;
+ }
+
+ .title{
+   color: white;
+   margin-bottom: 0.5rem;
+   font-size: 0.7rem;
+ }

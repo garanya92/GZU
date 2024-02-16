@@ -1,0 +1,11 @@
+.main{
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+
+  justify-content: space-around;
+}
+.main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

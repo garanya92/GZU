@@ -1,0 +1,56 @@
+
+
+
+ <div class="main" #main>
+
+
+       <!-- <p style="color: white; font-size: 1rem;" > {{index}}/{{all}} </p>-->
+   <div class="track_info" style="overflow: hidden; ">
+    <div class="artist"  >{{artist|cutString:30}}</div>
+    <div class="title" >{{title|cutString:30}}</div>
+</div>
+
+
+
+
+
+
+
+
+      <div style="display: flex; justify-content: space-between; "  >
+        <div style="display:  flex; color: white; font-weight: 300; ">{{currentTimeTrack}}</div>
+
+        <mat-slider #progress   id  ="sliders"    step="1" min="1" max="100" class=""  >
+
+          <input   matSliderThumb   [value]="persents"     (valueChange)="setTimeTrack($event)"  >
+
+        </mat-slider>
+
+        <div style="display:  flex; color: white; font-weight: 300; ">{{timeTrack}}</div>
+
+      </div>
+
+
+
+
+
+
+
+
+       <div class="control_bar"  >
+        <img class="control_bt" (click)="prew()" src="assets/back.png">
+       <img   *ngIf="isPlaying == false" class="control_bt"  (click) = "play(currentTrack)"  src="assets/play.png">
+      <img   *ngIf="isPlaying == true" class="control_bt"(click) = "play(currentTrack)"  src="assets/pause.png">
+      <img class="control_bt"  (click)="next()" src="assets/next.png">
+    </div>
+
+
+
+
+
+
+  </div>
+
+  <img class="cat" #cat src="assets/cat.png">
+<audio #audio ></audio>
+

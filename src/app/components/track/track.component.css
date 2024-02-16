@@ -1,0 +1,177 @@
+.main{
+  height: max-content;
+
+  background-color: rgba(123, 110, 123, 0.122);
+  display: block;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.3rem;
+
+  background-color: rgba(123, 110, 123, 0.122);
+
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+
+}
+
+.is_active{
+  height: max-content;
+
+  background-color: rgba(140, 87, 140, 0.261);
+  display: block;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+
+  margin-top: 0.3rem;
+
+
+  backdrop-filter: blur(6px);
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+
+
+
+
+
+.main:hover{
+  background-color: rgba(74, 63, 75, 0.463);
+  cursor: pointer;
+
+}
+
+
+.img_icon_bt{
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: auto;
+  margin-bottom: auto;
+
+
+}
+
+.img_icon{
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 0.2rem;
+
+
+}
+
+.icon_container{
+   margin-top: auto;
+   margin-bottom: auto;
+   display: flex;
+   margin: 0.25rem;
+
+
+}
+
+
+.bottom_info{
+  display: flex;
+  color: gray;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+
+}
+
+.info_container{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1rem;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    min-width: min-content;
+    color: aliceblue;
+
+
+
+}
+
+
+.icon{
+    margin-top: 0.4rem;
+    margin-right: 0.4rem;
+    width: 1rem;
+}
+
+
+
+
+.info_small{
+   display: none;
+}
+
+
+
+
+.info_likes_users{
+
+     display: flex;
+     background-color: rgb(54, 50, 57);
+     position: absolute;
+     z-index: 4000;
+     margin-left: -3rem;
+     margin-top: -5.5rem;
+      animation: ani 2.5s forwards;
+
+      border: solid gray 0.2rem;
+      border-radius: 1.5rem;
+      padding: 1rem;
+
+
+}
+
+
+  @media (max-width: 30rem)
+  {
+
+
+
+     .main{
+           padding-left: 0.5rem;
+           padding-right: 0.5rem;
+           margin-left: 0;
+           margin-right: 0;
+
+
+
+     }
+      .artist{
+        font-size: 0.8rem;
+      }
+        .title{
+          font-size: 0.8rem;
+        }
+
+
+
+    }
+
+.img_icon:hover{
+   cursor: pointer;
+}
+
+.artist
+{
+  color: aliceblue;
+   overflow: hidden;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.title{
+  overflow: hidden;
+  color: aliceblue;
+
+
+}

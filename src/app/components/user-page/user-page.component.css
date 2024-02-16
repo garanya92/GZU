@@ -1,0 +1,41 @@
+.main{
+  backdrop-filter: blur(5px);
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
+
+}
+
+.avatar{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* хром, сафари */
+.main::-webkit-scrollbar { width: 0; }
+
+.user_header{
+  display: flex;
+}
+
+.logo_container{
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+.logo{
+   width: 14rem;
+}
+
+.btn_basic{
+
+color: antiquewhite; margin-left: auto; margin-right: auto;
+}

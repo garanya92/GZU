@@ -1,0 +1,14 @@
+
+<ngb-carousel >
+
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="photoService.baseUrl + '/files' + photoService.userPhotos[0].path" alt="Random first slide" />
+    </div>
+    <div class="carousel-caption">
+      <h3>10 seconds between slides...</h3>
+      <p>This carousel uses customized default values.</p>
+    </div>
+  </ng-template>
+
+</ngb-carousel>

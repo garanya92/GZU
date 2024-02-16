@@ -1,0 +1,11 @@
+ <div class="main">
+  <div class="serach_container" style=" display: flex; flex-wrap: nowrap;">
+   <input type="text" placeholder="Пошук.." style="height: 2.1rem; border: none; width: 100%; background-color: rgba(64, 64, 64, 0.7);color: aliceblue; " >
+    <button mat-raised-button color="primary" >Пошук</button>
+
+
+  </div>
+<div *ngFor="let user of data.users">
+  <app-user-item [user]="user"></app-user-item>
+</div>
+</div>

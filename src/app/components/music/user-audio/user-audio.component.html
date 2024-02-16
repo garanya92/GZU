@@ -1,0 +1,43 @@
+<div style = "overflow-y: scroll;"
+*ngIf="userService.getUser() != null"
+style="display: flex; flex-direction: column"
+>
+<div
+  style="display: flex; cursor: pointer"
+  (click)="openUploadDialog()"
+>
+  <button
+    mat-mini-fab
+    style="margin-top: 0.5rem; margin-left: 1rem"
+    color="primary"
+  >
+    <img style="width: 1.3rem" src="assets/add_white.png" />
+  </button>
+  <p
+    style="
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 1rem;
+      color: aliceblue;
+    "
+  >
+    Завантажити з пристрою
+  </p>
+</div>
+
+
+
+<div *ngFor="let track of userTracksModule.userTracks">
+  <app-track [track]="track"></app-track>
+</div>
+</div>
+<div style="height: 3.7rem"></div>
+
+
+<div [hidden]="userService.isUserExist()">
+<app-need-login-lable
+  (onClose)="closeLoginComponent($event)"
+  message="Увійдіть або зареєструйтеся,
+ для того щоб користуватися цим розділом!"
+></app-need-login-lable>
+</div>

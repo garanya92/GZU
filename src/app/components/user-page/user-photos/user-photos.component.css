@@ -1,0 +1,32 @@
+.upload_tittle{
+   color: antiquewhite;
+   margin-top: auto;
+   margin-bottom: auto;
+   margin-left: 1rem;
+}
+.upload_photo{
+   display: flex;
+   margin-top: 1rem;
+  }
+  .photo_container{
+     width: 10rem;
+     height: 10rem;
+     overflow: hidden;
+     margin: 0.5rem;
+     display: flex;
+     cursor: pointer;
+
+  }
+
+  .photo{
+    width: auto;
+    height: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+.main{
+   display: flex;
+   flex-wrap: wrap;
+ padding-bottom: 3rem;
+  }

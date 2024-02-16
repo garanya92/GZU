@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "827845514246",
+    "project_id": "gzu-uman",
+    "storage_bucket": "gzu-uman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827845514246:android:8d5984dda94be163ad5f87",
+        "android_client_info": {
+          "package_name": "com.gzu.uman.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_j0nWcODdSVpN3R055d8Te54uV5xFRxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

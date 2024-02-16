@@ -1,0 +1,16 @@
+<div class="main" [ngStyle]="{marginLeft: isSender ? 'auto': 'none' }" >
+  <div class="user_info"   >
+   <div class="img_container">
+   <img class="img_icon" [src]="chatService.baseUrl + message.sender_avatar_path" >
+   </div>
+  <div style="font-size: 0.8rem;" >{{message.sender_login}}</div>
+</div>
+
+
+   <div class="message_body" >{{message.message_body}}</div>
+  <div class="time">{{message.time?.substring(10)}}
+      <img *ngIf="!message.read" style="width: 1rem; margin-right: 0.5rem;margin-left: 0.5rem;" src="assets/delivered.png">
+      <img *ngIf="message.read" style="width: 1rem; margin-right: 0.5rem;margin-left: 0.5rem;" src="assets/read.png">
+    </div>
+
+</div>

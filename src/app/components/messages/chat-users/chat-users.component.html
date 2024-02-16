@@ -1,0 +1,49 @@
+<div class="main" [ngStyle] = "{width:adaptiveService.isMobileMode? '100%': '15rem'}" >
+
+  <div  style="display: flex; padding-left: 1rem;" >
+
+
+    <button mat-mini-fab color="primary" routerLink="/peoples" >
+        <mat-icon class="mat-18">add</mat-icon>
+    </button>
+    <p style="text-align: center; margin-top: auto;margin-bottom: auto;margin-left: 0.5rem;" >Знайти юзера</p>
+
+
+ </div>
+
+
+  <div *ngFor = "let chat of chats">
+        <div *ngFor="let  user of chat.users" >
+
+          <div *ngIf="user.id != userService.getUser().id" >
+       <div
+           class="chat_item"
+
+         [class.chat_item_active] = "chatService.activeChat &&  chatService.activeChat.id == chat.id"
+
+         (click)="onClick.emit(true)" routerLink="/messages/{{chat.id}}"  >
+         <div class="img_container">
+          <img class="avatar" [src]="userService.baseUrl + user.avatar_path">
+         </div>
+         <div class="text_container" >
+          <div  class="login">{{user.login}}</div>
+           <div style="display: flex;" *ngIf="chat.lastMessage" class="last_message">
+                 {{chat.lastMessage}}
+                 <div style="text-indent: 1rem;" *ngIf="chat.unread_messages_counter && chat.unread_messages_counter != 0">
+                     (+{{chat.unread_messages_counter}})
+                </div>
+
+           </div>
+          </div>
+
+          </div>
+        </div>
+
+        </div>
+
+
+  </div>
+
+
+
+</div>

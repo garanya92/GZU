@@ -1,0 +1,49 @@
+<mat-accordion    style=" margin-left: 1rem; margin-right: 1rem; visibility: 70%;" >
+  <mat-expansion-panel style="background-color: rgb(54, 54, 54);" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header  style="background-color: rgb(103,58,183);" >
+      <mat-panel-title style="color: aliceblue;">
+        Є що нового ?
+      </mat-panel-title>
+      <mat-panel-description style="color: rgb(241, 237, 233);">
+        Створити новину
+      </mat-panel-description>
+    </mat-expansion-panel-header >
+    <div class="main" >
+
+      <mat-form-field style="width: 100%;" class="example-full-width">
+        <mat-label>Текст посту</mat-label>
+        <textarea matInput [(ngModel)] = "postTextStr" placeholder="Текст посту"></textarea>
+      </mat-form-field>
+
+     <div style="display: flex;">
+      <button (click)="onOpenUserAudio()" style="margin-bottom: 1rem; margin-right: 0.5rem;" mat-mini-fab color="primary">
+        <img style="width: 1rem; height: 1rem;" src="assets/file.png">
+    </button>
+        <div *ngIf="addetTracks" style="color: aliceblue; margin-top: auto;
+        margin-bottom: auto;margin-left: 0.5rem;" >Вкладених треків: {{addetTracks.length}}</div>
+
+    </div>
+     <button style="margin-left: auto;margin-right: auto;" mat-raised-button (click)="onPublish()">Опублікувати</button>
+
+    </div>
+
+
+
+
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
