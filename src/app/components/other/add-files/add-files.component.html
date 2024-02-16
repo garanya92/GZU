@@ -21,10 +21,10 @@
     </mat-tab>
     <mat-tab label="Мої фото"  >
 
-        <app-user-photos></app-user-photos>
+        <app-user-photos photoMode="ADDING" [user]="userService.getUser()" ></app-user-photos>
       </mat-tab>
 
-
+    <div>Додано:</div>
 
     <mat-tab label="Мої Відео">
 

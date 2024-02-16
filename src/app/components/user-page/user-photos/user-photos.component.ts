@@ -18,6 +18,7 @@ export class UserPhotosComponent implements OnInit {
  @Output() onReturnPhoto: EventEmitter<Photo>  = new EventEmitter<Photo>()
  isOwner = false;
  isAddingMode = false;
+ @Input() photoMode = "MINI"
 
  constructor(private dialog: MatDialog,
   public photoService: PhotoService,

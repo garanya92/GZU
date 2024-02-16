@@ -8,11 +8,9 @@
 
  </div>
      <div *ngFor="let photo of photoService.userPhotos;let i =  index" >
+           <app-photo [photo]="photo" [mode]="photoMode"> </app-photo>
 
-        <div *ngIf="photo.id" class ="photo_container" (click) = "openPictureSlider(photo.id)" (click) = "returnPhoto(photo)" >
-        <img  class = "photo" [src]="photoService.baseUrl + '/files' + photo.path">
 
-      </div>
 
     </div>
 

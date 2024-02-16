@@ -50,68 +50,67 @@ import { CreatePostComponent } from './components/news/create-post/create-post.c
 import { UserPhotosComponent } from './components/user-page/user-photos/user-photos.component';
 import { PictureSliderDialogComponent } from './components/dialogs/picture-slider-dialog/picture-slider-dialog.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { PhotoComponent } from "./components/photo/photo.component";
 
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MusicComponent,
-    NewsComponent,
-    PeoplesComponent,
-    PlayerComponent,
-    CutStringPipe,
-    NeedLoginLableComponent,
-    EditTrackComponent,
-    TagsComponent,
-    TagComponent,
-    MessagesComponent,
-    UserItemComponent,
-    PeoplesListDialogComponent,
-    MesssageComponent,
-    ChatComponent,
-    ChatUsersComponent,
-    InfinityScrollComponent,
-    UserAudioComponent,
-    AddFilesComponent,
-    TrackComponent,
-    PostComponent,
-    GroupsComponent,
-    LeftMobileMenuComponent,
-    UserPageComponent,
-    CreatePostComponent,
-    UserPhotosComponent,
-    PictureSliderDialogComponent
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatSliderModule,
-    MatIconModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    LoginComponent,
-    MatTabsModule,
-    MatProgressSpinnerModule,
-    FormsModule,
-    MatChipsModule,
-    MatInputModule,
-    MatSelectModule ,
-    MatExpansionModule,
-    NgbModule,
-    MatCardModule,
-    NgbCarouselModule
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass : InterseptorService , multi: true}
-
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MusicComponent,
+        NewsComponent,
+        PeoplesComponent,
+        PlayerComponent,
+        CutStringPipe,
+        NeedLoginLableComponent,
+        EditTrackComponent,
+        TagsComponent,
+        TagComponent,
+        MessagesComponent,
+        UserItemComponent,
+        PeoplesListDialogComponent,
+        MesssageComponent,
+        ChatComponent,
+        ChatUsersComponent,
+        InfinityScrollComponent,
+        UserAudioComponent,
+        AddFilesComponent,
+        TrackComponent,
+        PostComponent,
+        GroupsComponent,
+        LeftMobileMenuComponent,
+        UserPageComponent,
+        CreatePostComponent,
+        UserPhotosComponent,
+        PictureSliderDialogComponent
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: InterseptorService, multi: true }
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatSliderModule,
+        MatIconModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        LoginComponent,
+        MatTabsModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        MatChipsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatExpansionModule,
+        NgbModule,
+        MatCardModule,
+        NgbCarouselModule,
+        PhotoComponent
+    ]
 })
 export class AppModule { }

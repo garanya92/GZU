@@ -1,0 +1,38 @@
+.full{
+ width: 100%;
+}
+
+.mini{
+
+ width: auto;
+ height: 10rem;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: auto;
+ margin-top: auto;
+}
+
+.photo_container{
+   height: 10rem;
+   width: max-content;
+   overflow: hidden;
+   display: flex;
+   margin: 0.5rem;
+}
+.photo_container:hover{
+   cursor: pointer;
+}
+
+.main{
+  box-sizing: border-box;
+}
+
+.added{
+    border:  solid rgb(57, 50, 160) 0.3rem;
+    height: 10rem;
+    width: max-content;
+    overflow: hidden;
+    display: flex;
+    margin: 0.5rem;
+}
+

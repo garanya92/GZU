@@ -19,7 +19,7 @@ export class AddFilesComponent implements OnInit{
 constructor(public userTracksModule: UserTracksModule,
   private dialog: MatDialogRef<AddFilesComponent>,
   private dialog2: MatDialog,
-  private userService:UserService)
+  public userService:UserService)
 {
 
 }

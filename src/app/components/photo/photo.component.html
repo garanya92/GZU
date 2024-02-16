@@ -1,0 +1,16 @@
+<div class="main">
+
+
+  <div [class.photo_container] = "mode == 'MINI'"
+    [class.added] = "isAdded"
+    (click)="addPhoto()"
+  >
+  <img
+   [class.full] = "mode == 'FULL'"
+   [class.mini] = "mode == 'MINI'"
+
+
+  [src]="photoService.baseUrl +'/files' + photo.path">
+
+</div>
+</div>
