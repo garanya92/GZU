@@ -1,14 +1,17 @@
 
-<ngb-carousel >
+<ngb-carousel  style="background-color: grey; " [activeId]="data.id + ''"  >
 
-  <ng-template ngbSlide>
+   @for (photo of photoService.userPhotos; track $index)
+  {
+  <ng-template ngbSlide  [id]="photo.id + ''" >
     <div class="picsum-img-wrapper">
-      <img [src]="photoService.baseUrl + '/files' + photoService.userPhotos[0].path" alt="Random first slide" />
+      <img  alt="Random first slide" style="height: 100vh;"
+       [src]="photoService.baseUrl + '/files' + photo.path"  />
     </div>
     <div class="carousel-caption">
       <h3>10 seconds between slides...</h3>
       <p>This carousel uses customized default values.</p>
     </div>
   </ng-template>
-
+}
 </ngb-carousel>

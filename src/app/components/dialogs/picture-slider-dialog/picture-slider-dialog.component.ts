@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import config from 'capacitor.config';
 import { Photo, PhotoService } from 'src/app/services/photo.service';
 
 @Component({
@@ -12,16 +13,22 @@ import { Photo, PhotoService } from 'src/app/services/photo.service';
 export class PictureSliderDialogComponent implements OnInit{
   ngOnInit(): void {
 
+
+
+
   }
-	images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
 
 	constructor(config: NgbCarouselConfig,
-    public photoService: PhotoService) {
+    public photoService: PhotoService,
+    @Inject(MAT_DIALOG_DATA) public data:{'id':number}) {
 		// customize default values of carousels used by this component tree
 		config.interval = 10000;
 		config.wrap = false;
 		config.keyboard = false;
 		config.pauseOnHover = false;
 	}
+
+
 
 }

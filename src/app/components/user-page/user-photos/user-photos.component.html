@@ -7,10 +7,12 @@
 
 
  </div>
-     <div *ngFor="let photo of photoService.userPhotos" (click) = "openPictureSlider()">
-        <div class ="photo_container">
+     <div *ngFor="let photo of photoService.userPhotos;let i =  index" >
+
+        <div *ngIf="photo.id" class ="photo_container" (click) = "openPictureSlider(photo.id)" (click) = "returnPhoto(photo)" >
         <img  class = "photo" [src]="photoService.baseUrl + '/files' + photo.path">
-    </div>
+
+      </div>
 
     </div>
 
