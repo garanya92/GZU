@@ -13,20 +13,25 @@
 <div>
 <div style="display: flex;">
 <button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
- <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{addedTracks.length}}</div>
+ <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{tracks.length}}</div>
 </div>
 
 </div>
 
     </mat-tab>
     <mat-tab label="Мої фото"  >
-
-        <app-user-photos photoMode="ADDING" [user]="userService.getUser()" ></app-user-photos>
+     <div style="max-height: 20rem; overflow-y: scroll;">
+        <app-user-photos  (onReturnPhoto)="addPhotoToList($event)"  photoMode="ADDING" [user]="userService.getUser()" ></app-user-photos>
+      </div>
+        <div style="display: flex;">
+          <button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
+           <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{photos.length}}</div>
+          </div>
       </mat-tab>
 
-    <div>Додано:</div>
 
-    <mat-tab label="Мої Відео">
+
+    <mat-tab label="Мої Відео" style="height: 20rem;" >
 
             <button mat-raised-button (click)="uploadVideo()">Завантажити відео</button>
 

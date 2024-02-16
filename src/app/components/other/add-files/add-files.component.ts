@@ -5,6 +5,15 @@ import { UserTracksModule } from '../../music/music-modules/user-tracks.module';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
+import { Photo } from 'src/app/services/photo.service';
+import { Post } from 'src/app/services/post.service';
+
+export interface AddingFilesContaiener{
+    tracks : Track[],
+    photos: Photo[]
+
+}
+
 
 @Component({
   selector: 'app-add-tracks',
@@ -13,7 +22,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AddFilesComponent implements OnInit{
 
-  public addedTracks: Track[] = []
+  public fileContainer: AddingFilesContaiener
+
+
+
+
+
+  public tracks: Track[] = []
+  public photos: Photo[] = []
   @Output() onChoosenTracks: EventEmitter<Track[]> = new EventEmitter<Track[]>()
 
 constructor(public userTracksModule: UserTracksModule,
@@ -24,31 +40,61 @@ constructor(public userTracksModule: UserTracksModule,
 
 }
   ngOnInit(): void {
+
+
+
+
     if (this.userTracksModule.userTracks == null)
     {
         this.userTracksModule.getTracksByUser(this.userService.getUser().id)
     }
     }
+    /**
+     *
+     * Формування списку доданих треків
+     * до посту
+     * @param track
+     */
       addTrackToList(track: Track)
       {
-        const index = this.addedTracks.findIndex(n => n.id === track.id);
+        const index = this.tracks.findIndex(n => n.id === track.id);
         if (index !== -1) {
-          this.addedTracks.splice(index, 1);
+
+          this.tracks.splice(index, 1);
         }
         else{
-           this.addedTracks.push(track)
+           this.tracks.push(track)
         }
 
 
       }
 
+    /**
+     * Формування списку доданих
+     * фото в пост
+     * @param photo
+     */
+    addPhotoToList(photo: Photo)
+    {
+      const index = this.photos.findIndex(n => n.id === photo.id);
+      if (index !== -1) {
+        this.photos.splice(index, 1);
+      }
+      else{
+         this.photos.push(photo)
+      }
+    }
+
+
+
        /**
         * Повертає обрані
-        * треки в @Output
+        * файли в @Output
         */
       returnTracks()
       {
-         this.dialog.close(this.addedTracks)
+         this.fileContainer = {photos: this.photos, tracks: this.tracks}
+         this.dialog.close(this.fileContainer)
       }
 
 

@@ -8,7 +8,9 @@
 
  </div>
      <div *ngFor="let photo of photoService.userPhotos;let i =  index" >
-           <app-photo [photo]="photo" [mode]="photoMode"> </app-photo>
+           <app-photo [photo]="photo" [mode]="photoMode"
+            (onAddPhoto)="returnPhoto($event)"
+           > </app-photo>
 
 
 

@@ -77,7 +77,7 @@ openPictureSlider(index: number)
  * Повертаємо вибране фото в дочірній компонент
  */
 returnPhoto(photo:Photo)
-{     if (this.isAddingMode)
+{
       this.onReturnPhoto.emit(photo)
 }
 

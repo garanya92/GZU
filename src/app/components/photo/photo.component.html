@@ -1,8 +1,8 @@
 <div class="main">
 
 
-  <div [class.photo_container] = "mode == 'MINI'"
-    [class.added] = "isAdded"
+  <div [class.photo_container] = "mode == 'MINI' || mode == 'ADDING'"
+    [class.added] = "mode == 'ADDING' &&  isAdded"
     (click)="addPhoto()"
   >
   <img

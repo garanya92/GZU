@@ -1,3 +1,4 @@
+import { AddingFilesContaiener } from './../../other/add-files/add-files.component';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,8 +28,8 @@ export class CreatePostComponent {
 
   postTextStr: string
   scrollStrategy: ScrollStrategy
-  addetTracks: Track[]
   panelOpenState: boolean
+  fileContainer: AddingFilesContaiener
 
  constructor(
   private matDialog: MatDialog,
@@ -53,24 +54,29 @@ onOpenUserAudio()
     this.matDialog.open(AddFilesComponent,
     {
       panelClass: 'trend-dialog'
-    }).
-    afterClosed().subscribe((tracks: Track[])=>{
+    }). //Отримуємо вибрані файли з діалогу
+    afterClosed().subscribe((fileCotainer: AddingFilesContaiener)=>{
 
-       this.addetTracks = tracks;
+       console.log(fileCotainer)
+
+       this.fileContainer = fileCotainer
 
     })
 }
 
  onPublish()
  {
-    if ( this.postTextStr && this.postTextStr.length > 1 || this.addetTracks && this.addetTracks.length >1)
+    if ( this.postTextStr && this.postTextStr.length > 1 || this.fileContainer.photos?.length > 1 && this.fileContainer.tracks.length >1
+         )
     {
       let post: Post = {text_container: this.postTextStr,
-        tracks: this.addetTracks,creator: this.userService.getUser() }
+        tracks: this.fileContainer.tracks,photos: this.fileContainer.photos, creator: this.userService.getUser() }
          this.postService.post(post, "/api/user/create_post").subscribe((container: Container)=>{
+             console.log(container)
 
                 if (container.status)
                 {
+
                   this.postService.allPosts.push(container.entity)
                   this.panelOpenState = false;
                 }

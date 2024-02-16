@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { EntityService } from './entity.service';
 import { User } from './user.service';
 import { Track } from './audio.service';
+import { Photo } from './photo.service';
 
 export interface Post{
 
@@ -11,6 +12,7 @@ export interface Post{
   text_container:  string,
   creator?: User,
   tracks? :Track[],
+  photos?: Photo[],
   likes?: number,
   likesUser?: User[]
 

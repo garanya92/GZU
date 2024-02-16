@@ -16,6 +16,14 @@
   <p style="color: aliceblue; text-indent: 1rem;">{{post.text_container}}</p>
 
 </div>
+  <div class="photos_post" >
+    @for (photo of post.photos; track $index) {
+
+            <app-photo mode="FULL" [photo]="photo" ></app-photo>
+
+    }
+  </div>
+
 <div *ngIf="post.tracks"  class="tracks">
        <div *ngFor="let track of post.tracks">
          <app-track [track]="track"></app-track>
