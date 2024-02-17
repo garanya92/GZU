@@ -18,3 +18,4 @@
   overflow-y: hidden !important;
 
 }
+.track_space::-webkit-scrollbar { width: 0; }

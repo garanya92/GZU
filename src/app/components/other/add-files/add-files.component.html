@@ -1,8 +1,16 @@
 <div class="main" >
   <mat-tab-group >
+    <!---Вкладка з додаванням музики-->
     <mat-tab  label="Моя музика" >
 
- <div style="max-height: 20rem; overflow-y: scroll;"  >
+      <ng-template mat-tab-label>
+        <img
+          style="width: 1.2rem; margin-right: 0.5rem"
+          src="assets/note.png"
+        />
+        </ng-template>
+
+ <div class="track_space"  style="max-height: 20rem; max-width: 25rem; overflow-y: scroll;"  >
 
       <div *ngFor="let tarck of userTracksModule.userTracks">
         <app-track (onTrackAdd)="addTrackToList($event)"  [isAddingMode]="true" [track]="tarck"></app-track>
@@ -11,27 +19,40 @@
 </div>
 
 <div>
-<div style="display: flex;">
-<button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
- <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{tracks.length}}</div>
-</div>
+
 
 </div>
 
     </mat-tab>
-    <mat-tab label="Мої фото"  >
-     <div style="max-height: 20rem; overflow-y: scroll;">
+    <!--Вкладка з додаванням фото-->
+    <mat-tab  >
+
+      <ng-template mat-tab-label>
+        <img
+          style="width: 1.2rem; margin-right: 0.5rem"
+          src="assets/photo.png"
+        />
+        </ng-template>
+
+
+     <div class="track_space"  style="max-height: 20rem; max-width: 25rem; overflow-y: scroll;">
         <app-user-photos  (onReturnPhoto)="addPhotoToList($event)"  photoMode="ADDING" [user]="userService.getUser()" ></app-user-photos>
       </div>
-        <div style="display: flex;">
-          <button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
-           <div style="color: aliceblue; margin-top: auto; margin-bottom: auto; margin-left: 1rem;">Обрано: {{photos.length}}</div>
-          </div>
+
       </mat-tab>
 
 
 
-    <mat-tab label="Мої Відео" style="height: 20rem;" >
+    <mat-tab  style="height: 20rem;" >
+   <!--Вкладка з додаванням відео -->
+
+
+   <ng-template mat-tab-label>
+    <img
+      style="width: 1.2rem; margin-right: 0.5rem"
+      src="assets/video.png"
+    />
+    </ng-template>
 
             <button mat-raised-button (click)="uploadVideo()">Завантажити відео</button>
 
@@ -40,4 +61,20 @@
 
 
   </mat-tab-group>
+
+  <!--Кнопка додати та кількість доданих файлів-->
+  <div style="display: flex;">
+    <button (click)="returnTracks()" mat-raised-button color="primary">Додати</button>
+
+
+
+
+      <app-icon size="1rem" icon="note" [text]="tracks.length + ''" ></app-icon>
+      <app-icon size="1rem" icon="photo" [text]="photos.length + ''" ></app-icon>
+
+
+
+    </div>
+
+
 </div>

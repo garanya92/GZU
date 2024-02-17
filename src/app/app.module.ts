@@ -51,6 +51,7 @@ import { UserPhotosComponent } from './components/user-page/user-photos/user-pho
 import { PictureSliderDialogComponent } from './components/dialogs/picture-slider-dialog/picture-slider-dialog.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PhotoComponent } from "./components/photo/photo.component";
+import { IconComponent } from "./components/other/icon/icon.component";
 
 
 
@@ -110,7 +111,8 @@ import { PhotoComponent } from "./components/photo/photo.component";
         NgbModule,
         MatCardModule,
         NgbCarouselModule,
-        PhotoComponent
+        PhotoComponent,
+        IconComponent
     ]
 })
 export class AppModule { }

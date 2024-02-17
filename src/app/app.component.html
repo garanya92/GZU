@@ -27,7 +27,7 @@
 
     <header class="header">
 
-      <button style="margin-top: auto; margin-bottom: autong ;" *ngIf ="adaptiveService.isMobileMode" (click)="adaptiveService.setMenu()" mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
+      <button style="margin-top: auto; margin-bottom: auto ;" *ngIf ="adaptiveService.isMobileMode" (click)="adaptiveService.setMenu()" mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
          <img style="width: 1.5rem;" src="assets/menu.png">
       </button>
 
@@ -107,7 +107,7 @@
                </div>
 
   <!--Ітеми бокового бару-->
-     <div class="bar_item"  routerLink="/news"  > <img style="width: 1rem; height: 1rem; margin-right: 0.5rem;" src="assets/news.png">    Новини</div>
+     <div class="bar_item" (click)="adaptiveService.setMenu()"  routerLink="/news"  > <img style="width: 1rem; height: 1rem; margin-right: 0.5rem;" src="assets/news.png">    Новини</div>
         <div class="bar_item" routerLink="/peoples" (click)="adaptiveService.setMenu()" >
           <img style="width: 1rem; height: 1rem; margin-right:0.5rem;" src="assets/groups.png">
           Люди</div>

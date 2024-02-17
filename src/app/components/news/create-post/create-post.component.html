@@ -20,8 +20,13 @@
       <button (click)="onOpenUserAudio()" style="margin-bottom: 1rem; margin-right: 0.5rem;" mat-mini-fab color="primary">
         <img style="width: 1rem; height: 1rem;" src="assets/file.png">
     </button>
-        <div *ngIf="fileContainer" style="color: aliceblue; margin-top: auto;
-        margin-bottom: auto;margin-left: 0.5rem;" >Вкладених треків: {{fileContainer.tracks.length}}</div>
+       @if(fileContainer)
+       {
+            <div style="display: flex;">
+              <app-icon icon="photo" [text]="fileContainer.photos.length + ''" > </app-icon>
+              <app-icon icon="note" [text]="fileContainer.tracks.length + ''" > </app-icon>
+            </div>
+       }
 
     </div>
      <button style="margin-left: auto;margin-right: auto;" mat-raised-button (click)="onPublish()">Опублікувати</button>
