@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { AdaptiveService } from '../services/adaptive.service';
 
 @Pipe({
-  name: 'cutString'
+  name: 'cutString',
+  standalone: true
 })
 export class CutStringPipe implements PipeTransform {
 

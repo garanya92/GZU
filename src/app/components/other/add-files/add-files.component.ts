@@ -7,6 +7,11 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { Photo } from 'src/app/services/photo.service';
 import { Post } from 'src/app/services/post.service';
+import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
+import { TrackComponent } from '../../track/track.component';
+import { UserPhotosComponent } from '../../user-page/user-photos/user-photos.component';
+import { IconComponent } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 export interface AddingFilesContaiener{
     tracks : Track[],
@@ -19,6 +24,9 @@ export interface AddingFilesContaiener{
   selector: 'app-add-tracks',
   templateUrl: './add-files.component.html',
   styleUrls: ['./add-files.component.css']
+  ,standalone: true,
+  imports: [MatTabsModule, TrackComponent,
+    UserPhotosComponent,IconComponent, CommonModule]
 })
 export class AddFilesComponent implements OnInit{
 

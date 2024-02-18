@@ -1,11 +1,11 @@
 .full{
  width: 100%;
+ height: auto;
 }
 
 .mini{
 
- width: auto;
- height: 10rem;
+ width: 15rem;
  margin-left: auto;
  margin-right: auto;
  margin-bottom: auto;
@@ -13,8 +13,10 @@
 }
 
 .photo_container{
+   display: flex;
+   justify-content: center;
    height: 10rem;
-   width: max-content;
+   width: 10rem;
    overflow: hidden;
    display: flex;
    margin: 0.5rem;

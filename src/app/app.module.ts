@@ -26,7 +26,6 @@ import { UploadTrackComponent } from './components/dialogs/upload-track/upload-t
 import { EditTrackComponent } from './components/dialogs/edit-track/edit-track.component';
 import { FormsModule } from '@angular/forms';
 import {MatChipsModule} from '@angular/material/chips';
-import { TagsComponent } from './components/tags/tags.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { TagComponent } from './components/tags/tag/tag.component';
@@ -36,7 +35,6 @@ import { PeoplesListDialogComponent } from './components/dialogs/peoples-list-di
 import { MesssageComponent } from './components/messages/messsage/messsage.component';
 import { ChatComponent } from './components/messages/chat/chat.component';
 import { ChatUsersComponent } from './components/messages/chat-users/chat-users.component';
-import { InfinityScrollComponent } from './components/other/infinity-scroll/infinity-scroll.component';
 import { UserAudioComponent } from './components/music/user-audio/user-audio.component';
 import { AddFilesComponent } from './components/other/add-files/add-files.component';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -52,6 +50,8 @@ import { PictureSliderDialogComponent } from './components/dialogs/picture-slide
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PhotoComponent } from "./components/photo/photo.component";
 import { IconComponent } from "./components/other/icon/icon.component";
+import { CommentsComponent } from "./components/news/post/comments/comments.component";
+
 
 
 
@@ -59,31 +59,8 @@ import { IconComponent } from "./components/other/icon/icon.component";
 @NgModule({
     declarations: [
         AppComponent,
-        MusicComponent,
-        NewsComponent,
-        PeoplesComponent,
-        PlayerComponent,
-        CutStringPipe,
-        NeedLoginLableComponent,
-        EditTrackComponent,
-        TagsComponent,
-        TagComponent,
-        MessagesComponent,
-        UserItemComponent,
-        PeoplesListDialogComponent,
-        MesssageComponent,
-        ChatComponent,
-        ChatUsersComponent,
-        InfinityScrollComponent,
-        UserAudioComponent,
-        AddFilesComponent,
-        TrackComponent,
-        PostComponent,
         GroupsComponent,
         LeftMobileMenuComponent,
-        UserPageComponent,
-        CreatePostComponent,
-        UserPhotosComponent,
         PictureSliderDialogComponent
     ],
     providers: [
@@ -96,23 +73,21 @@ import { IconComponent } from "./components/other/icon/icon.component";
         HttpClientModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        MatSliderModule,
         MatIconModule,
         MatDialogModule,
-        MatFormFieldModule,
         LoginComponent,
-        MatTabsModule,
-        MatProgressSpinnerModule,
         FormsModule,
         MatChipsModule,
         MatInputModule,
         MatSelectModule,
-        MatExpansionModule,
         NgbModule,
         MatCardModule,
         NgbCarouselModule,
         PhotoComponent,
-        IconComponent
+        IconComponent,
+        CommentsComponent,
+        PlayerComponent,
+        PostComponent
     ]
 })
 export class AppModule { }

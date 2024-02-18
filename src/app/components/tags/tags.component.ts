@@ -2,11 +2,15 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Track } from 'src/app/services/audio.service';
 import { Tag, TagService } from 'src/app/services/tag.service';
 import { UserService } from 'src/app/services/user.service';
+import { TagComponent } from './tag/tag.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.css']
+  styleUrls: ['./tags.component.css'],
+  standalone: true,
+  imports: [TagComponent, CommonModule]
 })
 export class TagsComponent implements OnInit{
 

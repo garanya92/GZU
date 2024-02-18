@@ -8,13 +8,20 @@ import { GroupsComponent } from './components/groups/groups.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 
 const routes: Routes = [
-  {path: "music", component: MusicComponent},
-  {path: "peoples", component: PeoplesComponent},
-  {path: "messages/:id", component: MessagesComponent},
-  {path: "news", component: NewsComponent},
+
+  {path: "music", loadComponent: ()=>  import('./components/music/music.component').then(m=>
+    m.MusicComponent)},
+  {path: "peoples",  loadComponent: ()=> import('./components/peoples/peoples.component').then(
+    m => m.PeoplesComponent)},
+  {path: "messages/:id", loadComponent: ()=> import('./components/messages/messages.component').then(
+    m => m.MessagesComponent)},
+  {path: "news", loadComponent: ()=> import('./components/news/news.component').then
+  (m => m.NewsComponent)},
   {path: "groups", component: GroupsComponent},
-  {path: "user/:id" , component: UserPageComponent},
- {path: "", component: NewsComponent}
+  {path: "user/:id" , loadComponent: ()=> import('./components/user-page/user-page.component').then
+  (m => m.UserPageComponent)},
+ {path: "", loadComponent: ()=> import('./components/news/news.component').then
+ (m=> m.NewsComponent) }
 ];
 
 @NgModule({

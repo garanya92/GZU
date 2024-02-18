@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tag } from 'src/app/services/tag.service';
 
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
-  styleUrls: ['./tag.component.css']
+  styleUrls: ['./tag.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class TagComponent  implements OnInit {
 

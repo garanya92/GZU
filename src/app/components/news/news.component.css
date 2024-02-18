@@ -7,6 +7,7 @@
 .main{
   overflow-y: scroll;
   height: 100%;
+  padding-bottom: 3rem;
 }
 
 .main::-webkit-scrollbar { width: 0; }

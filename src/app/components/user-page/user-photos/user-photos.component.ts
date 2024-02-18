@@ -5,12 +5,17 @@ import { Photo, PhotoService } from 'src/app/services/photo.service';
 import { User, UserService } from 'src/app/services/user.service';
 import { Container } from 'src/app/services/entity.service';
 import { PictureSliderDialogComponent } from '../../dialogs/picture-slider-dialog/picture-slider-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PhotoComponent } from '../../photo/photo.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-user-photos',
   templateUrl: './user-photos.component.html',
-  styleUrls: ['./user-photos.component.css']
+  styleUrls: ['./user-photos.component.css'],
+  standalone: true,
+  imports: [MatIconModule, PhotoComponent, CommonModule]
 })
 export class UserPhotosComponent implements OnInit {
 

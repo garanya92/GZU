@@ -3,13 +3,16 @@ import { Chat, ChatService, Message } from 'src/app/services/chat.service';
 import { WsServiceService } from 'src/app/services/ws-service.service';
 import { MessagesComponent } from '../messages.component';
 import { Observable } from 'rxjs';
-import { getLocaleCurrencySymbol } from '@angular/common';
+import { CommonModule, getLocaleCurrencySymbol } from '@angular/common';
 import { Container } from 'src/app/services/entity.service';
+import { MesssageComponent } from '../messsage/messsage.component';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.css'],
+  standalone: true,
+  imports: [MesssageComponent, CommonModule]
 })
 export class ChatComponent implements OnInit{
 

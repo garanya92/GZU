@@ -1,18 +1,22 @@
+import { UserAudioComponent } from './user-audio/user-audio.component';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 
-
-import { UploadTrackComponent } from './../dialogs/upload-track/upload-track.component';
 import { Paginator } from './../../services/entity.service';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AudioService, Track } from 'src/app/services/audio.service';
 import { User, UserService } from 'src/app/services/user.service';
-import { LoginComponent } from '../dialogs/login/login.component';
 import { Tag, TagService } from 'src/app/services/tag.service';
 import { AdaptiveService } from 'src/app/services/adaptive.service';
 import { Observable, concat, observeOn } from 'rxjs';
 import { AllTracksModule } from './music-modules/all-tracks.module';
-import { isPlatformBrowser } from '@angular/common';
 import { UserTracksModule } from './music-modules/user-tracks.module';
+import { TrackComponent } from '../track/track.component';
+import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
+import { InfinityScrollComponent } from '../other/infinity-scroll/infinity-scroll.component';
+import { CommonModule } from '@angular/common';
+import { TagsComponent } from '../tags/tags.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -20,7 +24,11 @@ import { UserTracksModule } from './music-modules/user-tracks.module';
 @Component({
   selector: 'app-music',
   templateUrl: './music.component.html',
-  styleUrls: ['./music.component.css']
+  styleUrls: ['./music.component.css'],
+  standalone: true,
+  imports: [TrackComponent, MatTabsModule,
+     InfinityScrollComponent, MatProgressSpinnerModule,
+     CommonModule, TagsComponent, UserAudioComponent, MatButtonModule]
 })
 export class MusicComponent implements OnInit, AfterViewInit {
 

@@ -13,7 +13,8 @@ export interface InfiniteScrollOptions {
 @Component({
   selector: 'app-infinity-scroll',
   templateUrl: './infinity-scroll.component.html',
-  styleUrls: ['./infinity-scroll.component.css']
+  styleUrls: ['./infinity-scroll.component.css'],
+  standalone: true
 })
 export class InfinityScrollComponent implements AfterViewInit ,OnInit{
 

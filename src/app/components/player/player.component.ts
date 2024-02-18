@@ -4,11 +4,17 @@ import { AudioService } from 'src/app/services/audio.service';
 import { ViewPlayerPanelModule } from './view-player-panel/view-player-panel.module';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdaptiveService } from 'src/app/services/adaptive.service';
+import { CutStringPipe } from 'src/app/pipes/cut-string.pipe';
+import { MatSliderModule } from '@angular/material/slider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styleUrls: ['./player.component.css'],
+  standalone: true,
+  imports: [CutStringPipe, MatSliderModule,
+    TrackComponent, CommonModule  ]
 })
 export class PlayerComponent {
 

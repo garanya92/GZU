@@ -5,11 +5,9 @@
     [class.added] = "mode == 'ADDING' &&  isAdded"
     (click)="addPhoto()"
   >
-  <img
+  <img #img
    [class.full] = "mode == 'FULL'"
    [class.mini] = "mode == 'MINI'"
-
-
   [src]="photoService.baseUrl +'/files' + photo.path">
 
 </div>

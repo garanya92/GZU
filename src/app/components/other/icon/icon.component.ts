@@ -33,6 +33,7 @@ export class IconComponent implements OnInit {
  video = "/assets/video.png"
  note = "/assets/note.png"
  activeIcon = "/assets/error.png"
+ file = "/assets/file.png"
 
 
 
@@ -63,6 +64,11 @@ constructor()
   if (this.icon == "note")
   {
       this.activeIcon = this.note
+  }
+
+  if (this.icon == "file")
+  {
+      this.activeIcon = this.file
   }
 }
 }

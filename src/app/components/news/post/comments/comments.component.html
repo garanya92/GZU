@@ -1,0 +1,54 @@
+
+
+<div class="main">
+ <div style="color: aliceblue; text-align: center;">Коментарі:</div>
+ <br>
+
+
+   @if(post.comments == null ){
+      <div style="color: aliceblue;
+       text-align: center;
+       margin-top: 1rem; margin-bottom: 1rem;" >Коментарів поки що не має...</div>
+   }
+
+   @for(comment of post.comments; track $index) {
+               <app-comment [comment]="comment"></app-comment>
+
+   }
+
+   <br>
+   <!--Форма створення нового коментара-->
+  <form class="example-form" style="width: 100%;" >
+    <mat-form-field class="mat-form-field-label" style="width: 100%;" >
+    <mat-label>Залиште коментар</mat-label>
+    <textarea   [(ngModel)]="textInput"
+    [ngModelOptions]="{standalone: true}" style="width: 100%;"  matInput placeholder="Залиште коментар"></textarea>
+  </mat-form-field>
+  </form>
+  @if(fileContainer)
+  {
+    <div style="display: flex;">
+      <app-icon  icon="photo" size="1rem" [text]="fileContainer.photos.length + ''"></app-icon>
+      <app-icon  icon="note" size="1rem" [text]="fileContainer.tracks.length + ''"></app-icon>
+    </div>
+
+  }
+
+
+
+   <div style="display: flex;">
+      <button mat-raised-button color="primary"
+       (click)="saveComment()"
+      >Додати коментар</button>
+       <button mat-mini-fab  color="primary" style="margin-left: 0.5rem;
+       margin-top: auto; margin-bottom: auto;" (click) = "openAddFiles()"
+       >
+            <app-icon icon="file" size="1rem" ></app-icon>
+
+       </button>
+  </div>
+
+
+
+
+</div>

@@ -5,11 +5,18 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Chat } from 'src/app/services/chat.service';
 import { Container } from 'src/app/services/entity.service';
 import { User, UserService } from 'src/app/services/user.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { UserPhotosComponent } from './user-photos/user-photos.component';
+import { UserAudioComponent } from '../music/user-audio/user-audio.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.css']
+  styleUrls: ['./user-page.component.css'],
+  standalone: true,
+  imports: [MatTabsModule, UserPhotosComponent,
+     UserAudioComponent, CommonModule]
 })
 export class UserPageComponent implements OnInit {
 

@@ -1,7 +1,6 @@
 <div class="main" [ngStyle]="{
-  marginRight: adaptiveService.isMobileMode? '0' : '1rem',
-  marginLeft: adaptiveService.isMobileMode? '0' : '1rem',
-  padding: adaptiveService.isMobileMode? '0': '1rem'
+  padding: adaptiveService.isMobileMode? '0': '1rem',
+  width: adaptiveService.isMobileMode? '100%': '75%'
 }" >
  <div class="header">
    <div class="avatar_container" >
@@ -12,14 +11,40 @@
        <div class="login">{{post.creator?.login}}</div>
    </div>
  </div>
-<div class="post_body">
+<div class="post_body"
+
+>
   <p style="color: aliceblue; text-indent: 1rem;">{{post.text_container}}</p>
 
 </div>
-  <div class="photos_post" >
-    @for (photo of post.photos; track $index) {
+  <div class="photos_post"  >
+    @for (photo of post.photos  ;  track post;  let i =  $index) {
 
-            <app-photo mode="FULL" [photo]="photo" ></app-photo>
+
+             @if(adaptiveService.isMobileMode)
+             {
+              <app-photo mode="FULL" [photo]="photo" ></app-photo>
+             }
+             @else {
+
+                       @if (i == 0)
+                       {
+
+                       <div style= "cursor: pointer; ">
+
+                        <app-photo  *ngIf="post.photos"  [photo]="photo" mode="FULL"  (click) ="openPhotoSlider(post.photos)" >      </app-photo>
+                      </div>
+                       }
+                        @else {
+
+
+
+                        }
+
+
+
+             }
+
 
     }
   </div>
@@ -37,4 +62,11 @@
 
 
  </div>
+  <!--Область коментів-->
+  <div class="comment_space">
+         <app-comments [post]="post"></app-comments>
+
+
+  </div>
+
 </div>

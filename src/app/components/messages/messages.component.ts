@@ -10,13 +10,22 @@ import { ChatComponent } from './chat/chat.component';
 import { Chat, ChatService, Message } from 'src/app/services/chat.service';
 import { MessagesViewBlockModule } from './moduls/messages-view-block/messages-view-block.module';
 import { Container } from 'src/app/services/entity.service';
+import { NeedLoginLableComponent } from '../need-login-lable/need-login-lable.component';
+import { CommonModule } from '@angular/common';
+import { ChatUsersComponent } from './chat-users/chat-users.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  styleUrls: ['./messages.component.css'],
+  standalone: true,
+  imports: [NeedLoginLableComponent,
+  CommonModule, ChatUsersComponent, ChatUsersComponent,
+  FormsModule,
+  ChatComponent]
 })
 export class MessagesComponent  implements OnInit{
 

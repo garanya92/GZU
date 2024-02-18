@@ -1,6 +1,11 @@
-import { Component, OnInit , Inject} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { TagsComponent } from './../../tags/tags.component';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit , Inject, NgModuleRef, NgModule} from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgModel, NgModelGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { Router, RouterModule } from '@angular/router';
 import { AdaptiveService } from 'src/app/services/adaptive.service';
 import { AudioService, Track } from 'src/app/services/audio.service';
 import { Tag, TagService } from 'src/app/services/tag.service';
@@ -9,7 +14,11 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-edit-track',
   templateUrl: './edit-track.component.html',
-  styleUrls: ['./edit-track.component.css']
+  styleUrls: ['./edit-track.component.css'],
+  standalone: true,
+  imports: [RouterModule, CommonModule,
+    MatFormFieldModule, FormsModule,
+     TagsComponent, MatIconModule]
 })
 export class EditTrackComponent implements OnInit {
 

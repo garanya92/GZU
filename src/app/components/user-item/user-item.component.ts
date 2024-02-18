@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { Route, Router, RouterModule } from '@angular/router';
 import { Chat, ChatService } from 'src/app/services/chat.service';
 import { Container } from 'src/app/services/entity.service';
 import { User, UserService } from 'src/app/services/user.service';
@@ -7,7 +9,9 @@ import { User, UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-user-item',
   templateUrl: './user-item.component.html',
-  styleUrls: ['./user-item.component.css']
+  styleUrls: ['./user-item.component.css'],
+  standalone: true,
+  imports: [RouterModule, CommonModule, MatButtonModule]
 })
 export class UserItemComponent implements OnInit {
 

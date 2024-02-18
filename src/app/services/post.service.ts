@@ -4,6 +4,7 @@ import { EntityService } from './entity.service';
 import { User } from './user.service';
 import { Track } from './audio.service';
 import { Photo } from './photo.service';
+import { Comment } from './comment.service';
 
 export interface Post{
 
@@ -14,7 +15,8 @@ export interface Post{
   tracks? :Track[],
   photos?: Photo[],
   likes?: number,
-  likesUser?: User[]
+  likesUser?: User[],
+  comments?: Comment[]
 
 
 }

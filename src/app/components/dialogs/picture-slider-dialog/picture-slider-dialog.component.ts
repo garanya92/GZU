@@ -21,7 +21,7 @@ export class PictureSliderDialogComponent implements OnInit{
 
 	constructor(config: NgbCarouselConfig,
     public photoService: PhotoService,
-    @Inject(MAT_DIALOG_DATA) public data:{'id':number}) {
+    @Inject(MAT_DIALOG_DATA) public data:{'id':number, 'photos': Photo[]}) {
 		// customize default values of carousels used by this component tree
 		config.interval = 10000;
 		config.wrap = false;

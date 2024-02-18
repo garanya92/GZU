@@ -1,28 +1,28 @@
 import { AddingFilesContaiener } from './../../other/add-files/add-files.component';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { UserAudioComponent } from '../../music/user-audio/user-audio.component';
 import { UserTracksModule } from '../../music/music-modules/user-tracks.module';
 import { AddFilesComponent } from '../../other/add-files/add-files.component';
 import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
-import { Track } from 'src/app/services/audio.service';
-import { CommonModule } from '@angular/common';
-import { TrackComponent } from '../../track/track.component';
 import { UserService } from 'src/app/services/user.service';
 import { Post, PostService } from 'src/app/services/post.service';
 import { Container } from 'src/app/services/entity.service';
-import {Overlay} from '@angular/cdk/overlay'
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from '../../other/icon/icon.component';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
   selector: 'app-create-post-diaolog',
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  styleUrls: ['./create-post.component.css'],
+  standalone: true,
+  imports: [MatExpansionModule,MatInputModule, MatFormFieldModule, FormsModule,
+    IconComponent, CommonModule, MatButtonModule]
 })
 export class CreatePostComponent {
 
@@ -77,7 +77,13 @@ onOpenUserAudio()
                 if (container.status)
                 {
 
-                  this.postService.allPosts.push(container.entity)
+                   //Очистка файлового контейнера та інпута
+                   this.fileContainer.photos = []
+                   this.fileContainer.tracks = []
+                   this.postTextStr = ''
+
+
+                   this.postService.allPosts.unshift(container.entity)
                   this.panelOpenState = false;
                 }
 

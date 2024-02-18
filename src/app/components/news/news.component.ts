@@ -5,6 +5,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { UserService } from 'src/app/services/user.service';
 import { PostService } from 'src/app/services/post.service';
 import { Container } from 'src/app/services/entity.service';
+import { PostComponent } from './post/post.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -13,7 +15,9 @@ import { Container } from 'src/app/services/entity.service';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  styleUrls: ['./news.component.css'],
+  standalone: true,
+  imports: [PostComponent, CreatePostComponent, CommonModule]
 })
 export class NewsComponent implements OnInit {
 

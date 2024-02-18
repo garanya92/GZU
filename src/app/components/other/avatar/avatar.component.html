@@ -1,0 +1,17 @@
+
+<div style="display: flex; flex-direction: row;">
+<div class="main"
+ [style.width] = 'size'
+ [style.height] = 'size'
+ >
+  <img class="img"
+  [style.width] = 'size'
+  [style.height] = 'size'
+
+  [src]="photoService.baseUrl   + avatarPath">
+</div>
+@if(login)
+{
+  <div style="color: aliceblue; text-align: center; margin-left: 0.5rem; " >{{login}}</div>
+}
+</div>

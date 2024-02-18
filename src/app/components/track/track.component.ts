@@ -1,3 +1,6 @@
+import { MatIconModule } from '@angular/material/icon';
+import { IconComponent } from './../other/icon/icon.component';
+import {  MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { AudioService, Track } from 'src/app/services/audio.service';
@@ -5,12 +8,27 @@ import { EditTrackComponent } from '../dialogs/edit-track/edit-track.component';
 import { UserService } from 'src/app/services/user.service';
 import { Container } from 'src/app/services/entity.service';
 import { AdaptiveService } from 'src/app/services/adaptive.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CutStringPipe } from 'src/app/pipes/cut-string.pipe';
+import { CommonModule } from '@angular/common';
+import {  MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-track',
   templateUrl: './track.component.html',
-  styleUrls: ['./track.component.css']
+  styleUrls: ['./track.component.css'],
+  standalone: true,
+  imports: [
+     IconComponent,
+     MatIconModule,
+    MatProgressBarModule,
+     MatProgressSpinnerModule,
+     CutStringPipe,
+    CommonModule,
+MatSliderModule,
+MatButtonModule]
 })
 export class TrackComponent {
 
@@ -56,7 +74,9 @@ export class TrackComponent {
 
   ngOnInit(): void {
 
+
      this.audioService.player.addTracks(this)
+
 
      if (this.track.isPlaying == null)
      {

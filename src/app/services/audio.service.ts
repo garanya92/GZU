@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { EntityService } from './entity.service';
 import { PlayerComponent } from '../components/player/player.component';
 import { User } from './user.service';
-
+import { TrackComponent } from '../components/track/track.component';
 
 
 export interface Track  {

@@ -1,0 +1,12 @@
+<div class="main" >
+  <div class="comment_container">
+    <app-avatar [login]="comment.author.login"  [avatarPath]="comment.author.avatar_path" size="3rem" ></app-avatar>
+     <div
+     style="margin-top: auto; margin-bottom: auto; margin-left: 1rem;"
+     >{{comment.text}}</div>
+  </div>
+  @for (track of comment.tracks; track $index)
+ {
+    <app-track></app-track>
+ }
+</div>

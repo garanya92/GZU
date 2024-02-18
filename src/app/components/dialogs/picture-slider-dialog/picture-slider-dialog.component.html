@@ -1,7 +1,7 @@
 
 <ngb-carousel  style="background-color: grey; " [activeId]="data.id + ''"  >
 
-   @for (photo of photoService.userPhotos; track $index)
+   @for (photo of data.photos; track $index )
   {
   <ng-template ngbSlide  [id]="photo.id + ''" >
     <div class="picsum-img-wrapper">
@@ -9,8 +9,7 @@
        [src]="photoService.baseUrl + '/files' + photo.path"  />
     </div>
     <div class="carousel-caption">
-      <h3>10 seconds between slides...</h3>
-      <p>This carousel uses customized default values.</p>
+      <!--Тут можна накласти інфу на область фотки -->
     </div>
   </ng-template>
 }
