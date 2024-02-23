@@ -31,10 +31,8 @@ constructor(public photoService: PhotoService)
 }
   ngAfterViewInit(): void {
 
-   console.log('ширина ' +  this.imgRef.nativeElement.offsetWidth +
-   " висота" + this.imgRef.nativeElement.offsetHeight)
 
-          console.log(this.imgRef)
+
   }
 
 

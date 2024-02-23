@@ -6,6 +6,7 @@ import { Container, EntityService } from './entity.service';
 import { HttpClient } from '@angular/common/http';
 import { MessagesComponent } from '../components/messages/messages.component';
 import { Observable, concat } from 'rxjs';
+import { Track } from './audio.service';
 
 
 export interface Chat {
@@ -38,6 +39,7 @@ export interface Message {
  sender_login: string,
  time?: string,
  chat_id: number,
+ tracks?: Track[]
 
 
 
@@ -138,7 +140,7 @@ constructor(override httpClient: HttpClient, private userService: UserService) {
 
 
   // Відправляємо повідомлення
-  sendMessage(text: string)
+  sendMessage(message: Message)
   {
       /**
        * Що нам треба ?
@@ -147,11 +149,7 @@ constructor(override httpClient: HttpClient, private userService: UserService) {
        */
 
 
-      let  message: Message
-      message = {sender_avatar_path: this.userService.getUser().avatar_path,
-       read: false, delivered: false, sender_id: this.userService.getUser().id,
-       sender_login: this.userService.getUser().login, message_body:text,
-      chat_id: this.activeChat.id ||0 }
+
 
 
         this.post(message, "/send_message").subscribe((messageSatusResponse:

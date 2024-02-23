@@ -75,7 +75,7 @@ export class MessagesViewBlockModule {
 hideChatUsersBlock()
 {
 
-       if(this.adaptiveService.isMobileMode)
+       if(this.adaptiveService.isMobileMode == true)
        {
            this.isShowChatsUserBlock = false
            this.isShowMessagesBlock = true

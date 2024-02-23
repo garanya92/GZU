@@ -1,4 +1,4 @@
-import { TrackComponent } from './../../track/track.component';
+import { TrackComponent } from '../track/track.component';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { User, UserService } from 'src/app/services/user.service';

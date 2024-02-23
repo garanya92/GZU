@@ -7,6 +7,9 @@ import { PostService } from 'src/app/services/post.service';
 import { Container } from 'src/app/services/entity.service';
 import { PostComponent } from './post/post.component';
 import { CommonModule } from '@angular/common';
+import { ErrorMessageComponent } from '../dialogs/error-message/error-message.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 
@@ -17,17 +20,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
   standalone: true,
-  imports: [PostComponent, CreatePostComponent, CommonModule]
+  imports: [PostComponent,
+     CreatePostComponent,
+      CommonModule, ErrorMessageComponent,
+    MatProgressSpinnerModule]
 })
 export class NewsComponent implements OnInit {
 
 numberOfPage = 0;
 sizePage = 10;
+isShowError = false;
+isLoading = true;
 
  constructor(private matDialog: MatDialog,
   public userService: UserService,
   public postService: PostService,
-  public AdaptiveService: AdaptiveService)
+  public adaptiveService: AdaptiveService)
  {
 
 
@@ -52,13 +60,21 @@ onCreatePostDialog()
 
   getAllPosts()
 {
+   this.isLoading = true;
    this.postService.get("/api/general/get_all_posts/"+ this.numberOfPage + "/" + this.sizePage).
    subscribe((container: Container)=>{
        this.postService.allPosts = container.entity
+     this.isShowError = false;
+     this.isLoading = false;
 
+      },error => {
 
+    this.isShowError = true;
+    this.isLoading = false;
       })
 
 }
+
+
 
 }

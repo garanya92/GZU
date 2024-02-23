@@ -1,3 +1,4 @@
+import { AddingFilesContaiener } from 'src/app/components/other/add-files/add-files.component';
 import { MessageStatusResponse } from './../../services/chat.service';
 
 import { User, UserService } from 'src/app/services/user.service';
@@ -14,6 +15,9 @@ import { NeedLoginLableComponent } from '../need-login-lable/need-login-lable.co
 import { CommonModule } from '@angular/common';
 import { ChatUsersComponent } from './chat-users/chat-users.component';
 import { FormsModule } from '@angular/forms';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { AddFilesComponent } from '../other/add-files/add-files.component';
 
 
 
@@ -25,7 +29,8 @@ import { FormsModule } from '@angular/forms';
   imports: [NeedLoginLableComponent,
   CommonModule, ChatUsersComponent, ChatUsersComponent,
   FormsModule,
-  ChatComponent]
+  ChatComponent,
+ MatIconModule, MatButtonModule]
 })
 export class MessagesComponent  implements OnInit{
 
@@ -41,6 +46,7 @@ export class MessagesComponent  implements OnInit{
   isSender = false;
   @ViewChild ("scroll", {static: false}) messagesContainerEl: ElementRef
   isShowUsersBar =  false;
+  filesContainer: AddingFilesContaiener
 
   constructor(private wsServiceService: WsServiceService, public userService: UserService,
     private matDialog: MatDialog, private route: ActivatedRoute, public chatService: ChatService,
@@ -80,7 +86,19 @@ window.addEventListener('resize', ()=>{
   sendMessage()
   {
 
-          this.chatService.sendMessage(this.messageStr)
+    let  message: Message
+    message = {sender_avatar_path: this.userService.getUser().avatar_path,
+     read: false, delivered: false, sender_id: this.userService.getUser().id,
+     sender_login: this.userService.getUser().login, message_body:this.messageStr,
+    chat_id: this.chatService.activeChat.id ||0 }
+
+    if ( this.filesContainer && this.filesContainer.tracks &&  this.filesContainer.tracks.length > 0)
+    {    message.tracks = []
+         message.tracks = this.filesContainer.tracks
+    }
+
+
+          this.chatService.sendMessage(message)
           this.messageStr = ""
       }
 
@@ -151,6 +169,8 @@ scrollDown()
          if (this.chatId != 0)
          this.chatService._getChatById(this.chatId).subscribe((response:any)=>{
           this.chatService.activeChat = response
+
+
           this.chatService.getChatMessagesById(0, this.chatService.pageSize, this.chatService.activeChat).subscribe((container: Container)=>{
               this.chatService.activeChat.unread_messages_counter  = 0
              if (!this.chatService.activeChat.messagesList || this.chatService.activeChat.messagesList.length == 0)
@@ -158,7 +178,16 @@ scrollDown()
               {
                     this.chatService.activeChat.messagesList?.unshift(message)
               }
+
                      this.scrollDown()
+
+                      //Щоб зразу кидало у блок повідомлень юзера
+                    if(this.adaptiveService.isMobileMode && this.chatId != 0)
+                    {
+                           this.messagesViewController.isShowMessagesBlock = true
+                           this.messagesViewController.isShowChatsUserBlock = false
+                    }
+
                      this.chatService.container = container
              })
 
@@ -191,6 +220,14 @@ onLogin(response: any)
    console.log("get masseges after logining!")
 }
 
+  openAddFiles()
+  {
+     this.matDialog.open(AddFilesComponent).afterClosed().
+     subscribe((files:AddingFilesContaiener)=>{
 
+       this.filesContainer = files
+
+     })
+  }
 
 }

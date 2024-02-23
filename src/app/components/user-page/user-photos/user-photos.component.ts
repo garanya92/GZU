@@ -8,6 +8,7 @@ import { PictureSliderDialogComponent } from '../../dialogs/picture-slider-dialo
 import { MatIconModule } from '@angular/material/icon';
 import { PhotoComponent } from '../../photo/photo.component';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './user-photos.component.html',
   styleUrls: ['./user-photos.component.css'],
   standalone: true,
-  imports: [MatIconModule, PhotoComponent, CommonModule]
+  imports: [MatIconModule, PhotoComponent, CommonModule, MatButtonModule]
 })
 export class UserPhotosComponent implements OnInit {
 
@@ -47,7 +48,6 @@ export class UserPhotosComponent implements OnInit {
 
            this.photoService.get("/api/general/get_photos_by_user_id/"+ this.user.id).subscribe
            ((container: Container)=>{
-                console.log(container)
                 this.photoService.userPhotos = container.entity
 
            })
@@ -59,10 +59,10 @@ export class UserPhotosComponent implements OnInit {
 openUploadDialog()
 {
     this.dialog.open(UploadTrackComponent, {data:{type: "Photo"}}).afterClosed().subscribe
-    ((photo: Photo)=>
+    ((container: Container)=>
      {
-       console.log(photo)
-       this.photoService.userPhotos.push(photo)
+
+       this.photoService.userPhotos.push(container.entity)
      }
     )
 }

@@ -5,6 +5,7 @@ import {  ChatService, Message } from 'src/app/services/chat.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NeedLoginLableComponent } from '../../need-login-lable/need-login-lable.component';
 import { CommonModule } from '@angular/common';
+import { TrackComponent } from '../../music/track/track.component';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './messsage.component.html',
   styleUrls: ['./messsage.component.css'],
   standalone: true,
-  imports: [NeedLoginLableComponent, CommonModule]
+  imports: [NeedLoginLableComponent, CommonModule, TrackComponent]
 })
 export class MesssageComponent implements OnInit {
 

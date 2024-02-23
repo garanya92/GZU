@@ -7,7 +7,7 @@ import { MusicComponent } from './components/music/music.component';
 import { NewsComponent } from './components/news/news.component';
 import { PeoplesComponent } from './components/peoples/peoples.component';
 import { PlayerComponent } from './components/player/player.component';
-import { TrackComponent } from './components/track/track.component';
+import { TrackComponent } from './components/music/track/track.component';
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';

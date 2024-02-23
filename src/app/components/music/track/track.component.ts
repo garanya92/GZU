@@ -1,10 +1,10 @@
 import { MatIconModule } from '@angular/material/icon';
-import { IconComponent } from './../other/icon/icon.component';
+import { IconComponent } from '../../other/icon/icon.component';
 import {  MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { AudioService, Track } from 'src/app/services/audio.service';
-import { EditTrackComponent } from '../dialogs/edit-track/edit-track.component';
+import { EditTrackComponent } from '../../dialogs/edit-track/edit-track.component';
 import { UserService } from 'src/app/services/user.service';
 import { Container } from 'src/app/services/entity.service';
 import { AdaptiveService } from 'src/app/services/adaptive.service';
@@ -157,7 +157,8 @@ export class TrackComponent {
                }
                 else{
 
-                  this.track = reponse.entity
+                  this.track.likes = reponse.entity.likes
+                  this.track.like  = reponse.entity.like
 
                 }
 

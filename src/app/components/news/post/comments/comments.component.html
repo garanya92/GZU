@@ -1,8 +1,8 @@
 
 
 <div class="main">
- <div style="color: aliceblue; text-align: center;">Коментарі:</div>
- <br>
+ <div style="color: aliceblue; text-align: center;">Коментарі: {{post.comments?.length}}</div>
+
 
 
    @if(post.comments == null ){
@@ -11,12 +11,40 @@
        margin-top: 1rem; margin-bottom: 1rem;" >Коментарів поки що не має...</div>
    }
 
-   @for(comment of post.comments; track $index) {
-               <app-comment [comment]="comment"></app-comment>
+    @if(isShowFullComments == true )
+    {
+      @for(comment of post.comments; track $index) {
+        <app-comment [comment]="comment"></app-comment>
 
-   }
+}
+    }
+    @else {
+         @for (comment of shortListComment; track $index) {
+          <app-comment [comment] = "comment"></app-comment>
+         }
+    }
 
+
+      @if(post.comments && post.comments.length >2)
+      {
+
+
+      <button mat-raised-button color="basic"
+       style="width: 100%; color: antiquewhite; margin-bottom: 0.5rem;"
+       (click)="isShowFullComments == false? isShowFullComments = true: isShowFullComments = false"  >
+       @if(isShowFullComments)
+       {
+         Приховати всі коментарі
+       }
+       @else {
+          Показати всі коментарі
+       }
+
+      </button>
+    }
    <br>
+
+
    <!--Форма створення нового коментара-->
   <form class="example-form" style="width: 100%;" >
     <mat-form-field class="mat-form-field-label" style="width: 100%;" >
@@ -47,7 +75,6 @@
 
        </button>
   </div>
-
 
 
 

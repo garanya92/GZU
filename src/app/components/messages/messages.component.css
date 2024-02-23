@@ -80,7 +80,7 @@
 .input_space{
 
    display: flex;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
   flex-wrap: nowrap;
   border: 0.15rem solid rgba(91, 89, 89, 0.79);
   border-radius: 0.3rem;

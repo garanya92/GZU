@@ -16,6 +16,9 @@ export interface Video{
 })
 export class VideoService extends EntityService{
 
+   userVideos: Video[]
+
+
   constructor(override httpClient: HttpClient) {
     super(httpClient)
   }

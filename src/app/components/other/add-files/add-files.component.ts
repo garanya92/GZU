@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Photo } from 'src/app/services/photo.service';
 import { Post } from 'src/app/services/post.service';
 import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
-import { TrackComponent } from '../../track/track.component';
+import { TrackComponent } from '../../music/track/track.component';
 import { UserPhotosComponent } from '../../user-page/user-photos/user-photos.component';
 import { IconComponent } from '../icon/icon.component';
 import { CommonModule } from '@angular/common';

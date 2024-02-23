@@ -6,7 +6,7 @@
  min-width: 10rem;
  margin: 0.5rem;
  border-radius: 1.5rem;
- display: flex;
+ display: block;
  transition: 1s;
 
 
@@ -33,6 +33,7 @@
 .message_body{
 
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 
   margin-top: auto;

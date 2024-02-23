@@ -5,7 +5,7 @@ import { Container } from 'src/app/services/entity.service';
 import { Post, PostService } from 'src/app/services/post.service';
 import { PictureSliderDialogComponent } from '../../dialogs/picture-slider-dialog/picture-slider-dialog.component';
 import { Photo } from 'src/app/services/photo.service';
-import { TrackComponent } from '../../track/track.component';
+import { TrackComponent } from '../../music/track/track.component';
 import { CommonModule } from '@angular/common';
 import { PhotoComponent } from '../../photo/photo.component';
 import { CommentsComponent } from './comments/comments.component';

@@ -11,12 +11,13 @@ import { AdaptiveService } from 'src/app/services/adaptive.service';
 import { Observable, concat, observeOn } from 'rxjs';
 import { AllTracksModule } from './music-modules/all-tracks.module';
 import { UserTracksModule } from './music-modules/user-tracks.module';
-import { TrackComponent } from '../track/track.component';
+import { TrackComponent } from './track/track.component';
 import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { InfinityScrollComponent } from '../other/infinity-scroll/infinity-scroll.component';
 import { CommonModule } from '@angular/common';
 import { TagsComponent } from '../tags/tags.component';
 import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -28,7 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [TrackComponent, MatTabsModule,
      InfinityScrollComponent, MatProgressSpinnerModule,
-     CommonModule, TagsComponent, UserAudioComponent, MatButtonModule]
+     CommonModule, TagsComponent, UserAudioComponent, MatButtonModule,
+    ]
 })
 export class MusicComponent implements OnInit, AfterViewInit {
 
@@ -38,7 +40,7 @@ export class MusicComponent implements OnInit, AfterViewInit {
 
   tags: Tag[]
   isTagsPanelShow = false;
-
+  isError = false;
   isTagsTracks = false;
   allTracksPagianator: Paginator
 
@@ -135,7 +137,7 @@ export class MusicComponent implements OnInit, AfterViewInit {
      let stream = new Observable((observe)=>
      {
                this.audioService.get(path).subscribe((responsse) =>{
-                   console.log(responsse)
+
                   paginator = responsse
                   observe.next(paginator)
                })

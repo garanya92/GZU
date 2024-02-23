@@ -1,5 +1,5 @@
 
-<div style="display: flex; flex-direction: row;">
+<div style="display: block; flex-direction: row;">
 <div class="main"
  [style.width] = 'size'
  [style.height] = 'size'
@@ -12,6 +12,8 @@
 </div>
 @if(login)
 {
-  <div style="color: aliceblue; text-align: center; margin-left: 0.5rem; " >{{login}}</div>
+  <div style="color: aliceblue;
+   text-align: center;
+   font-size: 0.8rem; margin-top: 0.4rem; " >{{login}}</div>
 }
 </div>

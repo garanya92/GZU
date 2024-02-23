@@ -1,0 +1,14 @@
+<div class="main">
+
+  <button mat-mini-fab (click)="uploadVideo()" color="primary">
+      <mat-icon class="mat-18">add</mat-icon>
+  </button>
+   @for (video of videoService.userVideos; track $index) {
+
+     <video
+      style="width: 20%;" controls
+     [src] = "videoService.baseUrl +'/files'  + video.path"></video>
+
+   }
+
+</div>

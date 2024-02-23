@@ -1,0 +1,13 @@
+.main{
+  background-color: rgb(56, 54, 54);
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.message{
+   color: antiquewhite;
+   text-align: center;
+}

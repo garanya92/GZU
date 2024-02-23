@@ -1,4 +1,5 @@
-<div class="main">
+<div class="main" [ngStyle]="
+{width: adaptiveService.isMobileMode? '100%': '75%'}">
 <app-create-post-diaolog></app-create-post-diaolog>
 
 
@@ -8,7 +9,10 @@
     <app-post [post]="post"></app-post>
   </div>
 
-
-
+  <mat-spinner style="margin-left: auto; margin-right: auto;" *ngIf="isLoading" ></mat-spinner>
+  <!--Компоенент, який буде показаний,
+  якщо  з беку не буде отримано новин-->
+  <app-error-message *ngIf="isShowError" (onResponse)="getAllPosts()"
+    ></app-error-message>
 
 </div>

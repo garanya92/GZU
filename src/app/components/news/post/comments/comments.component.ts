@@ -12,6 +12,7 @@ import { AddFilesComponent, AddingFilesContaiener } from 'src/app/components/oth
 import { CommentComponent } from "./comment/comment.component";
 import { CommonModule } from '@angular/common';
 import { Container } from 'src/app/services/entity.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @Component({
@@ -20,13 +21,17 @@ import { Container } from 'src/app/services/entity.service';
     templateUrl: './comments.component.html',
     styleUrl: './comments.component.css',
     imports: [MatInputModule, MatIconModule, MatButtonModule,
-        IconComponent, FormsModule, CommonModule, CommentComponent]
+        IconComponent, FormsModule, CommonModule,
+        CommentComponent, MatExpansionModule]
 })
 export class CommentsComponent implements OnInit {
 
   @Input() post: Post
   textInput: string
   fileContainer: AddingFilesContaiener
+  panelOpenState = false
+  shortListComment: Comment[]
+  isShowFullComments = false;
 
   constructor(public commentService: CommentService,
     private userService: UserService,
@@ -36,6 +41,13 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
 
+     this.shortListComment = []
+      if(this.post.comments &&  this.post.comments[0])
+     this.shortListComment.push(this.post.comments[0])
+
+     if(this.post.comments &&  this.post.comments[1])
+     this.shortListComment.push(this.post.comments[1])
+
   }
 
    //Створює/оновлює коментар на сервері
@@ -43,21 +55,24 @@ export class CommentsComponent implements OnInit {
    {
      let comment: Comment
      comment = {author: this.userService.getUser(),
-    post: this.post, text: this.textInput}
-        if (this.fileContainer.photos.length > 0)
-           comment.tracks = this.fileContainer.tracks
-        if (this.fileContainer.photos.length > 0)
-          comment.photos = this.fileContainer.photos
+    post: this.post, text: this.textInput }
 
+
+
+
+   console.log(comment)
 
       this.commentService.post(comment, "/api/user/save_comment").
           subscribe((container:Container)=>{
-                if (container.status)
+              console.log(container.entity)
+            if (container.status)
                 {
                     this.textInput = ''
                     this.post.comments?.push(container.entity)
                 }
-          })
+
+
+              })
 
    }
 

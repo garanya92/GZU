@@ -47,9 +47,13 @@
       background-color: rgba(49, 48, 48, 0.401); color: aliceblue; "
        [(ngModel)]="messageStr"
       >
-      <button mat-raised-button color="primary"(click)="sendMessage()" [disabled]="messageStr.length < 1" >
-       sendng
-      </button>
+     <button mat-mini-fab (click)="sendMessage()" color="primary" [disabled]="messageStr.length < 1" >
+         <mat-icon class="mat-18">send</mat-icon>
+     </button>
+
+     <button style="margin-left: 0.5rem;" color="primary" mat-mini-fab (click)="openAddFiles()">
+      <mat-icon class="mat-18">add</mat-icon>
+  </button>
 
   </div>
 </div>

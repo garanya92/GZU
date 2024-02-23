@@ -9,6 +9,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { UserPhotosComponent } from './user-photos/user-photos.component';
 import { UserAudioComponent } from '../music/user-audio/user-audio.component';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { UserVideosComponent } from './user-videos/user-videos.component';
 
 @Component({
   selector: 'app-user-page',
@@ -16,7 +19,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./user-page.component.css'],
   standalone: true,
   imports: [MatTabsModule, UserPhotosComponent,
-     UserAudioComponent, CommonModule]
+     UserAudioComponent, CommonModule, MatButtonModule ,
+    UserVideosComponent]
 })
 export class UserPageComponent implements OnInit {
 

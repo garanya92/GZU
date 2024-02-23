@@ -1,8 +1,9 @@
 .main{
   background-color: rgba(61, 60, 60, 0.34);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   margin-top: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5тп rem;
+  transition: 1s;
 }

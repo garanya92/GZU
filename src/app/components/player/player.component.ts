@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { TrackComponent } from '../track/track.component';
+import { TrackComponent } from '../music/track/track.component';
 import { AudioService } from 'src/app/services/audio.service';
 import { ViewPlayerPanelModule } from './view-player-panel/view-player-panel.module';
 import { MatProgressBarModule } from '@angular/material/progress-bar';

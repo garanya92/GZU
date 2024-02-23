@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 
 import { User } from 'src/app/services/user.service';
 
@@ -8,6 +9,8 @@ import { AudioService, Track } from 'src/app/services/audio.service';
 import { EditTrackComponent } from '../edit-track/edit-track.component';
 import { MatProgressSpinner, MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
+import { Container } from 'src/app/services/entity.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -24,7 +27,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './upload-track.component.html',
   styleUrls: ['./upload-track.component.css'],
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule]
+  imports: [MatProgressSpinnerModule, CommonModule, MatButtonModule, MatIconModule]
 })
 export class UploadTrackComponent  implements OnInit{
 
@@ -83,6 +86,13 @@ export class UploadTrackComponent  implements OnInit{
       this.activeInputFilterTypes = this.photoInputTypes
   }
 
+  if (this.data.type == "Video")
+  {
+      this.activeInputFilterTypes = this.videInputTupes
+  }
+
+
+
   }
 
 
@@ -118,9 +128,9 @@ export class UploadTrackComponent  implements OnInit{
               formData.append("file", this.inputRef.nativeElement.files[0])
 
 
-               this.audioService.post( formData, path).subscribe((response)=>
+               this.audioService.post( formData, path).subscribe((response:Container)=>
                {
-                          console.log(this.data.type)
+                          console.log(response)
                            this.uploadFile = response
                          if (this.data.type == "Track")
                          {
