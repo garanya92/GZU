@@ -15,7 +15,7 @@
     <!--Кнопка, яка повертає в список чатів (Акивна в мобільній версії)-->
      <div  *ngIf = "adaptiveService.isMobileMode" class="back_bt" (click)= "messagesViewController.showChatUsersBlock()"  >
           <img src="assets/back.png" style="width: 1rem; height: 1rem;">
-          <div  >назад</div>]
+          <div class="back_text" >назад</div>
     </div>
   <div  style="font-size: 1rem;"    >
       <div *ngIf="chatService.activeChat">

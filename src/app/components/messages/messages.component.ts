@@ -134,7 +134,7 @@ scrollDown()
    //Отримуємо чат по ід в параметрах
    //Ну і він буде активний
    setChat()
-   {
+   {    this.chatService.isRenderReady = false;
           //Якщо чати ще не були завантажені,  -  підтягуємо
          if (this.chatService.chatsUser == null)
          {
@@ -143,6 +143,7 @@ scrollDown()
                    this.chatService.chatsUser = response
                    this.getChatByIdParam()
                    this.scrollDown()
+                   this.chatService.isRenderReady = true;
 
                }
              )
@@ -151,6 +152,7 @@ scrollDown()
             //Якщо чати вже були завантажені , - просто отримуємо
             //Активний чат
             this.getChatByIdParam()
+            this.chatService.isRenderReady = true;
            }
 
 
@@ -162,6 +164,7 @@ scrollDown()
   // Отримуємо повідомлення з серверу для цього чату
  getChatByIdParam()
  {
+  this.chatService.isRenderReady = false
   this.route.params.subscribe((param)=>
   {
 
@@ -195,6 +198,7 @@ scrollDown()
          })
 
          this.scrollDown()
+         this.chatService.isRenderReady = true;
 
   })
 

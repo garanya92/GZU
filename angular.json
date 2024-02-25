@@ -22,14 +22,22 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "runner.js",
+                "input": "src/app/runners",
+                "output": "./runners"
+              }
+
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+
+            ]
           },
           "configurations": {
             "production": {
@@ -87,6 +95,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+
+
+
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",

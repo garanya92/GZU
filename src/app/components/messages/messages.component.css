@@ -19,13 +19,17 @@
 }
 
 .back_bt{
- padding: 0.3rem;
- border-radius: 0.6rem;
  display: flex;
  margin-top: auto;
  margin-bottom: auto;
- border: solid 0.1rem grey;
 
+
+}
+.back_text{
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  justify-items: center;
 }
 
  .back_bt:hover{
@@ -98,8 +102,10 @@
     width: 100%;
     min-height: 2rem;
     background-color: rgba(61, 62, 61, 0.67);
-
+    justify-content: space-between;
     border-radius: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 

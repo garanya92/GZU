@@ -59,6 +59,7 @@ public container: Container //Контейнер  з повідомленням�
 public activeChat: Chat
 public  pageSize =  10;
 public allUnreadMessages= 0;
+public isRenderReady = false;
 
 constructor(override httpClient: HttpClient, private userService: UserService) {
     super(httpClient);
@@ -128,6 +129,7 @@ constructor(override httpClient: HttpClient, private userService: UserService) {
                     {
                       this.chatsUser.push(container.entity)
                       observe.next(container.entity)
+
                     }
 
               })
@@ -147,8 +149,6 @@ constructor(override httpClient: HttpClient, private userService: UserService) {
        * Треба відправити повідомлення на сервер. Вказавши, в який саме чат
        * його потрібно відправити
        */
-
-
 
 
 

@@ -1,5 +1,6 @@
 
-<div style="text-align: center;" *ngIf="chatService.activeChat && chatService.activeChat.messagesList && chatService.activeChat.messagesList.length == 0">
+<div *ngIf="chatService.isRenderReady" >
+<div  style="text-align: center;" *ngIf="chatService.activeChat && chatService.activeChat.messagesList && chatService.activeChat.messagesList.length == 0">
   Поки що нічого не має
 </div>
 <div *ngIf="chatService.container && chatService.container.last != true"
@@ -12,6 +13,7 @@
    </div>
  <div #corn ></div>
 </div>
-
+</div>
+<mat-spinner *ngIf="!chatService.isRenderReady" style="margin-left: auto; margin-right: auto;" ></mat-spinner>
 
 
